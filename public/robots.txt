@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://farid-portfolio.vercel.app/sitemap.xml
