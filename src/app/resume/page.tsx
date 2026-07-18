@@ -2,7 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
-import { Printer, Mail, Briefcase, GraduationCap, Code, MapPin, Award, UserCheck, Building, Rocket } from "lucide-react";
+import { Printer, Mail, Briefcase, GraduationCap, Code, MapPin, Award, UserCheck, Building, Rocket, BarChart3 } from "lucide-react";
 
 export default function Resume() {
   const handlePrint = () => {
@@ -14,7 +14,7 @@ export default function Resume() {
       <div className="mx-auto max-w-4xl">
         {/* Actions bar (hidden during print) */}
         <div className="flex justify-between items-center mb-8 bg-card border border-border rounded-2xl p-4 shadow-sm print:hidden">
-          <span className="text-sm font-semibold text-foreground">Official System Resume — Muhammad Farid Fitriansyah</span>
+          <span className="text-sm font-semibold text-foreground">Official Resume — Muhammad Farid Fitriansyah</span>
           <div className="flex gap-2">
             <a
               href="/Muhammad-Farid-Fitriansyah-CV.docx"
@@ -38,7 +38,6 @@ export default function Resume() {
           {/* Header */}
           <div className="border-b border-border pb-8 text-center sm:text-left sm:flex sm:justify-between sm:items-end">
             <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4">
-              {/* Subtle Thumbnail Portrait */}
               <div className="relative h-20 w-20 shrink-0 rounded-2xl overflow-hidden border-2 border-indigo-500/20 shadow-md bg-secondary/50">
                 <Image
                   src="/images/farid-about-suit.webp"
@@ -54,10 +53,10 @@ export default function Resume() {
                   Muhammad Farid Fitriansyah
                 </h1>
                 <p className="text-sm sm:text-base font-semibold text-indigo-500 font-mono uppercase tracking-wider">
-                  Software Engineer — AI, Data &amp; Intelligent Systems
+                  Data Analyst | Business Intelligence &amp; Machine Learning
                 </p>
                 <p className="text-xs text-muted-foreground max-w-lg leading-relaxed">
-                  Computer Science graduate (Sarjana Ilmu Komputer, GPA 3.86) from Universitas Samudra with hands-on experience in Data Analytics, Machine Learning (SGD, LSTM, RAG), BI Dashboards, and Web Software Engineering.
+                  Computer Science graduate (Sarjana Ilmu Komputer, GPA 3.86) from Universitas Samudra specializing in Data Analytics, Machine Learning (SGD, LSTM, RAG), Business Intelligence dashboards, and software implementation.
                 </p>
               </div>
             </div>
@@ -192,21 +191,33 @@ export default function Resume() {
                 </h3>
                 <div className="space-y-3 font-mono text-xs">
                   <div>
-                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">AI &amp; Machine Learning</span>
+                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">1. Data Analytics</span>
                     <p className="text-muted-foreground leading-relaxed text-[11px]">
-                      Python, PyTorch, TensorFlow, Scikit-Learn, Regression (SGD), LSTM, TF-IDF, Cosine Similarity, RAG Engine
+                      Python, Pandas, NumPy, Data Cleansing, Preprocessing, EDA, Statistical Analysis
                     </p>
                   </div>
                   <div>
-                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">Data &amp; Analytics</span>
+                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">2. Business Intelligence</span>
                     <p className="text-muted-foreground leading-relaxed text-[11px]">
-                      MS Excel (Expert), SQL, BigQuery, Google Looker Studio, Plotly, Chart.js, Pandas, NumPy
+                      MS Excel (Expert), Plotly, Chart.js, Looker Studio, Interactive Dashboards
                     </p>
                   </div>
                   <div>
-                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">Software Development</span>
+                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">3. Database &amp; SQL</span>
                     <p className="text-muted-foreground leading-relaxed text-[11px]">
-                      PHP, CodeIgniter 3, Laravel 10, Next.js, React, TypeScript, TailwindCSS, WordPress, Elementor, REST API
+                      SQL, MySQL, SQLite, BigQuery, Relational Modeling
+                    </p>
+                  </div>
+                  <div>
+                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">4. Machine Learning</span>
+                    <p className="text-muted-foreground leading-relaxed text-[11px]">
+                      Scikit-Learn, PyTorch, Regression (SGD), Time Series (LSTM), RAG Engines
+                    </p>
+                  </div>
+                  <div>
+                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">5. Software Implementation</span>
+                    <p className="text-muted-foreground leading-relaxed text-[11px]">
+                      PHP, CodeIgniter 3, Laravel 10, Flask, Next.js, React, TypeScript, WordPress, REST API
                     </p>
                   </div>
                 </div>
@@ -295,21 +306,30 @@ export default function Resume() {
 
               {/* SECTION D: PROJECT EXPERIENCE */}
               <div className="space-y-4">
-                <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider border-b border-border pb-2">
-                  Key Project Highlights
+                <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider border-b border-border pb-2 flex items-center gap-1.5">
+                  <BarChart3 className="h-4 w-4 text-indigo-500" />
+                  Key Analytics &amp; Project Highlights
                 </h3>
 
                 <div className="space-y-3 font-mono text-xs">
                   <div className="flex gap-2 items-start">
                     <span className="text-indigo-500 shrink-0 font-bold">01</span>
                     <div>
-                      <strong className="text-foreground">Analisis &amp; Prediksi Penjualan SGD (Skripsi)</strong>
-                      <span className="text-muted-foreground"> — Model prediksi regresi berbasis Stochastic Gradient Descent (θ ≥ 0 constraint). R² = 51.26%, MAE = 9.68 items. Interaktif Streamlit simulation dashboard. (March 2026)</span>
+                      <strong className="text-foreground">Live Commerce Sales Analytics &amp; SGD Prediction</strong>
+                      <span className="text-muted-foreground"> — Model prediksi regresi berbasis Stochastic Gradient Descent (θ ≥ 0 constraint). R² = 51.26%, MAE = 9.68 items. Interaktif Streamlit simulation dashboard &amp; Flask BI application. (March 2026)</span>
                     </div>
                   </div>
 
                   <div className="flex gap-2 items-start">
                     <span className="text-indigo-500 shrink-0 font-bold">02</span>
+                    <div>
+                      <strong className="text-foreground">Foresight IQ — Time Series Commodity Forecasting</strong>
+                      <span className="text-muted-foreground"> — Analisis time-series dan prediksi permintaan komoditas menggunakan PyTorch LSTM. Test MAPE 17.29% – 19.94%. Clean Architecture Streamlit dashboard. (2025)</span>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2 items-start">
+                    <span className="text-indigo-500 shrink-0 font-bold">03</span>
                     <div>
                       <strong className="text-foreground">Dashboard Penjualan Sepeda &amp; US Superstore</strong>
                       <span className="text-muted-foreground"> — Proyek Data Analyst menggunakan MS Excel &amp; Edspert. Analisis demografi pelanggan, kategori produk, dan visualisasi dashboard interaktif. (May – June 2024)</span>
@@ -317,18 +337,10 @@ export default function Resume() {
                   </div>
 
                   <div className="flex gap-2 items-start">
-                    <span className="text-indigo-500 shrink-0 font-bold">03</span>
-                    <div>
-                      <strong className="text-foreground">Sistem Manajemen Puskesmas Berbasis Web</strong>
-                      <span className="text-muted-foreground"> — Aplikasi manajemen pelayanan kesehatan menggunakan CodeIgniter 3 dan MySQL untuk pengelolaan data pasien, dokter, dan laporan kunjungan. (June 2024)</span>
-                    </div>
-                  </div>
-
-                  <div className="flex gap-2 items-start">
                     <span className="text-indigo-500 shrink-0 font-bold">04</span>
                     <div>
-                      <strong className="text-foreground">Pengembangan Website Fakultas Hukum Unsam &amp; P2MW</strong>
-                      <span className="text-muted-foreground"> — Mengembangkan website resmi Fakultas Hukum Universitas Samudra (1.000+ pengguna) serta website bisnis P2MW (Brader Art, Kawan Ngampus, A-Briqs) menggunakan WordPress &amp; Elementor. (2023 – 2024)</span>
+                      <strong className="text-foreground">Smart CBT &amp; Web Platforms (Software Differentiator)</strong>
+                      <span className="text-muted-foreground"> — Aplikasi Laravel 10 anti-cheat CBT, CodeIgniter 3 Sistem Puskesmas, serta website Fakultas Hukum Unsam (1.000+ pengguna) dan P2MW. (2023 – 2024)</span>
                     </div>
                   </div>
                 </div>

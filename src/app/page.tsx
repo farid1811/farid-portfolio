@@ -17,6 +17,13 @@ import {
   Fingerprint,
   GraduationCap,
   ShieldCheck,
+  LineChart,
+  PieChart,
+  Cpu,
+  Workflow,
+  Search,
+  BarChart3,
+  Lightbulb,
 } from "lucide-react";
 import { projectsData } from "@/lib/projectsData";
 
@@ -30,51 +37,64 @@ const ProjectCard = dynamic(() => import("@/components/ProjectCard"), {
 
 const skillsData = [
   {
-    category: "AI & Machine Learning",
-    items: ["Python", "PyTorch", "TensorFlow", "Scikit-Learn", "Regression (SGD)", "Time Series (LSTM)", "TF-IDF / Cosine", "RAG Pipeline"],
+    category: "1. Data Analytics",
+    items: ["Python", "Pandas", "NumPy", "Data Cleansing", "Data Preprocessing", "Exploratory Data Analysis", "Statistical Analysis"],
   },
   {
-    category: "Data Analytics & BI",
-    items: ["Data Cleansing", "Data Preprocessing", "Data Visualization", "MS Excel (Expert)", "SQL (BigQuery/MySQL)", "Looker Studio", "Plotly / Chart.js"],
+    category: "2. Business Intelligence & Viz",
+    items: ["MS Excel (Expert)", "Plotly", "Chart.js", "Looker Studio", "Interactive Dashboards", "Data Storytelling"],
   },
   {
-    category: "Software Engineering",
-    items: ["Python", "PHP (CodeIgniter / Laravel)", "Next.js", "React", "TypeScript", "TailwindCSS", "REST API", "Clean Architecture"],
+    category: "3. Database & Management",
+    items: ["SQL", "MySQL", "SQLite", "Google BigQuery", "Data Pipeline", "Relational Modeling"],
   },
   {
-    category: "Tools & Ecosystem",
-    items: ["Git / GitHub", "VS Code", "Google Colab", "Jupyter Notebook", "SQLite / MySQL", "WordPress / Elementor", "Anaconda", "Figma"],
+    category: "4. Machine Learning & Predictive",
+    items: ["Scikit-Learn", "PyTorch", "Regression (SGD)", "Time Series (LSTM)", "RAG Systems", "Model Evaluation (MAE/MAPE/R²)"],
+  },
+  {
+    category: "5. Software Development (Differentiator)",
+    items: ["PHP (CodeIgniter / Laravel)", "Flask", "Next.js", "React", "TypeScript", "TailwindCSS", "REST API", "WordPress"],
   },
 ];
 
 const metricsData = [
   { value: "3.86 / 4.00", label: "Universitas Samudra GPA" },
-  { value: "51.26% R²", label: "SGD Sales Prediction Model" },
+  { value: "51.26% R²", label: "SGD Sales Prediction Fit" },
   { value: "< 50ms", label: "Local Vector Search Cache" },
-  { value: "4 Grants", label: "Research & Startup Funding" },
+  { value: "4 Projects", label: "Analytics & Systems Showcase" },
+];
+
+const analyticalWorkflow = [
+  { step: "01", title: "Understand Problem", desc: "Define operational challenges, business targets, and key analytical questions." },
+  { step: "02", title: "Collect & Prepare Data", desc: "Clean raw data, handle outliers, and lock scaling split boundaries to guard against data leakage." },
+  { step: "03", title: "Explore & Analyze", desc: "Uncover patterns, demographic distributions, and statistical relationships across variables." },
+  { step: "04", title: "Visualize & Communicate", desc: "Build interactive dashboards in MS Excel, Streamlit, and Plotly to present actionable insights." },
+  { step: "05", title: "Model & Predict", desc: "Train machine learning models (non-negative SGD, LSTM) to forecast future trends accurately." },
+  { step: "06", title: "Support Decisions", desc: "Deliver intuitive applications and PDF reports that empower strategic business planning." },
 ];
 
 const philosophyCards = [
   {
-    Icon: Layers,
+    Icon: LineChart,
     color: "bg-indigo-500/10 text-indigo-500",
-    title: "Clean Software Architecture",
-    desc: "Decoupling data preprocessing, ML inference services, and presentation interfaces. Demonstrated in Foresight IQ's structured PyTorch pipeline.",
-    footer: "Decoupled Layers • Testability • Clean Code",
-  },
-  {
-    Icon: CheckCircle2,
-    color: "bg-emerald-500/10 text-emerald-500",
     title: "Data Integrity & Rigor",
-    desc: "Enforcing zero data-leakage boundaries during train/test scaling, fitting MinMaxScaler parameters strictly on training data.",
-    footer: "Data Leakage Guard • Validation • Metrics",
+    desc: "Enforcing strict train/test scaling boundaries to eliminate data leakage, fitting MinMaxScaler parameters strictly on training splits.",
+    footer: "Data Cleansing • Scaling Guard • Validation",
   },
   {
     Icon: TrendingUp,
     color: "bg-violet-500/10 text-violet-500",
-    title: "Mathematical Optimization",
-    desc: "Developing custom non-negative Stochastic Gradient Descent (θ ≥ 0) solvers to prevent unrealistic negative driver coefficients in business models.",
-    footer: "Constrained SGD • R² Fit • Business Logic",
+    title: "Realistic Business Modeling",
+    desc: "Developing custom non-negative Stochastic Gradient Descent (θ ≥ 0) solvers to prevent unrealistic negative driver coefficients in commercial sales models.",
+    footer: "Constrained SGD • R² Accuracy • Business Logic",
+  },
+  {
+    Icon: PieChart,
+    color: "bg-emerald-500/10 text-emerald-500",
+    title: "Interactive Visualization & BI",
+    desc: "Designing interactive dashboards with 3D regression surface meshes, Plotly range sliders, and dynamic filtering to communicate insights clearly.",
+    footer: "MS Excel • Streamlit • Plotly.js • BI Dashboards",
   },
 ];
 
@@ -139,7 +159,6 @@ export default function Home() {
 
       {/* HERO SECTION */}
       <section className="relative w-full max-w-7xl px-4 pt-12 pb-16 sm:px-6 lg:px-8 lg:pt-20 lg:pb-24">
-        {/* Ambient lighting glow */}
         <div
           className="absolute top-1/3 left-1/2 -z-10 h-96 w-[700px] -translate-x-1/2 -translate-y-1/2 pointer-events-none"
           style={{
@@ -158,13 +177,13 @@ export default function Home() {
             animate="visible"
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
-            {/* Tagline pill */}
+            {/* Eyebrow badge */}
             <motion.div
               variants={itemVariants}
               className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/5 px-4 py-1.5 text-xs text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide uppercase font-mono"
             >
               <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-              Muhammad Farid Fitriansyah — S.Kom (GPA 3.86)
+              DATA ANALYST · BUSINESS INTELLIGENCE · MACHINE LEARNING
             </motion.div>
 
             {/* Main Title */}
@@ -179,12 +198,12 @@ export default function Home() {
               </span>
             </motion.h1>
 
-            {/* Positioning Subtitle */}
+            {/* Core Value Statement */}
             <motion.p
               variants={itemVariants}
               className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed font-light mx-auto lg:mx-0"
             >
-              <strong className="text-foreground font-semibold">Software Engineer — AI, Data &amp; Intelligent Systems</strong>. Computer Science graduate from <strong className="text-foreground font-semibold">Universitas Samudra</strong> specializing in predictive forecasting models, machine learning, business intelligence dashboards, and clean-architecture software development.
+              I am <strong className="text-foreground font-semibold">Muhammad Farid Fitriansyah</strong> — a <strong className="text-foreground font-semibold">Data Analyst</strong> specializing in Business Intelligence, Machine Learning, and Predictive Analytics. Computer Science graduate from <strong className="text-foreground font-semibold">Universitas Samudra (GPA 3.86)</strong> transforming complex data into actionable insights, visual dashboards, and intelligent decision support solutions.
             </motion.p>
 
             {/* Action buttons */}
@@ -238,11 +257,8 @@ export default function Home() {
             className="lg:col-span-5 flex justify-center"
           >
             <div className="relative w-full max-w-sm sm:max-w-md lg:max-w-none">
-              
-              {/* Decorative back-glow frame */}
               <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-indigo-500/20 via-purple-500/20 to-pink-500/20 blur-xl opacity-70 pointer-events-none" />
 
-              {/* Main Image Container */}
               <div className="relative rounded-3xl border border-border bg-card/80 p-2.5 shadow-2xl backdrop-blur-md overflow-hidden group">
                 <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-secondary/40">
                   <Image
@@ -253,12 +269,9 @@ export default function Home() {
                     priority
                     className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
                   />
-                  
-                  {/* Subtle lighting vignette overlay */}
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-60 pointer-events-none" />
                 </div>
 
-                {/* Micro Identity Overlay Banner */}
                 <div className="p-3.5 flex items-center justify-between gap-2">
                   <div className="flex items-center gap-2">
                     <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-500 shrink-0">
@@ -270,13 +283,12 @@ export default function Home() {
                     </div>
                   </div>
 
-                  <div className="flex items-center gap-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-2.5 py-0.5 text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold font-mono">
+                  <div className="flex items-center gap-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 px-2.5 py-0.5 text-[10px] text-indigo-600 dark:text-indigo-400 font-semibold font-mono">
                     <ShieldCheck className="h-3 w-3" />
-                    <span>Verified CV</span>
+                    <span>Data Analyst</span>
                   </div>
                 </div>
               </div>
-
             </div>
           </motion.div>
 
@@ -301,22 +313,54 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ANALYTICAL WORKFLOW SECTION */}
+      <section className="w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8" aria-label="Analytical workflow">
+        <div className="mx-auto max-w-3xl text-center mb-16">
+          <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
+            Methodology &amp; Process
+          </span>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            End-to-End Analytical Workflow
+          </h2>
+          <p className="mt-3 text-base text-muted-foreground font-light leading-relaxed">
+            How raw data is transformed into actionable insights, predictive models, and decision support solutions.
+          </p>
+        </div>
+
+        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {analyticalWorkflow.map((item) => (
+            <div
+              key={item.step}
+              className="rounded-2xl border border-border bg-card p-6 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col justify-between"
+            >
+              <div className="space-y-3">
+                <span className="inline-block text-xs font-mono font-bold text-indigo-500 bg-indigo-500/10 px-2.5 py-1 rounded-md">
+                  {item.step}
+                </span>
+                <h3 className="text-base font-bold text-foreground">{item.title}</h3>
+                <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* FEATURED PROJECTS */}
-      <section className="w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8">
+      <section className="w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 border-t border-border">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:items-end mb-12">
           <div className="max-w-xl text-center md:text-left">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Featured Systems &amp; Analytics
+              Featured Analytics &amp; Data Projects
             </h2>
             <p className="mt-3 text-base text-muted-foreground leading-relaxed">
-              Explore four key projects spanning ML demand forecasting, SGD live sales modeling, Gemini RAG decision systems, and proctored CBT engines.
+              Explore key projects demonstrating live commerce sales prediction, PyTorch LSTM commodity forecasting, and Gemini RAG decision systems.
             </p>
           </div>
           <Link
             href="/projects"
             className="group inline-flex items-center gap-1 text-sm font-semibold text-indigo-500 hover:text-indigo-600 transition-colors"
           >
-            Browse all case studies
+            Browse all projects
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </Link>
         </div>
@@ -328,15 +372,15 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ENGINEERING PHILOSOPHY */}
+      {/* ENGINEERING & ANALYTICS PHILOSOPHY */}
       <section className="w-full bg-secondary/35 py-24 border-y border-border" aria-label="Engineering philosophy">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-16">
             <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Engineering &amp; Research Focus
+              Analytical &amp; Engineering Focus
             </h2>
             <p className="mt-4 text-base text-muted-foreground font-light">
-              Combining mathematical rigor with robust software engineering to deliver real business impact.
+              Combining data analytics, statistical machine learning, and clean software implementation.
             </p>
           </div>
 
@@ -365,7 +409,7 @@ export default function Home() {
                 <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500">
                   <Database className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground">Vector Search &amp; Pre-Stemming Optimization</h3>
+                <h3 className="text-lg font-bold text-foreground">Vector Search &amp; Semantic Analytics Optimization</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   Innovative RAG backend optimization: caching 768-dimension vector embeddings in local SQLite tables to bypass API network roundtrips, and pre-computing stem maps to reduce runtime stem overhead.
                 </p>
@@ -376,19 +420,19 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Security card */}
+            {/* Technical Differentiator Card */}
             <div className="rounded-2xl border border-border bg-card p-8 flex flex-col justify-between h-80 shadow-sm hover:shadow-md transition-shadow duration-200">
               <div className="space-y-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-red-500/10 text-red-500">
-                  <Fingerprint className="h-6 w-6" aria-hidden="true" />
+                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500">
+                  <Workflow className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground">Defensive System Design</h3>
+                <h3 className="text-lg font-bold text-foreground">Software Differentiator</h3>
                 <p className="text-sm text-muted-foreground leading-relaxed">
-                  Web-based testing security featuring real-time client-side proctoring, tab switch tracking, randomized question keys, and Safe Exam Browser request validation.
+                  Unlike standard static analysis workflows, I can build, deploy, and maintain functional web applications (Flask, Laravel, Next.js) that turn models into usable tools.
                 </p>
               </div>
               <div className="border-t border-border pt-4 text-xs font-mono text-muted-foreground">
-                Laravel 10 • Proctor Audit Logs • SEB Header
+                Data Analyst + Software Implementation
               </div>
             </div>
           </div>
@@ -400,11 +444,11 @@ export default function Home() {
         <div className="mx-auto max-w-3xl text-center mb-16">
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Technical Skills</h2>
           <p className="mt-4 text-base text-muted-foreground font-light">
-            Verified technical stack derived from official CV and production project repositories.
+            Organized hierarchy: Data Analytics, Business Intelligence, Databases, Machine Learning, and Software Implementation.
           </p>
         </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
           {skillsData.map((skillGroup, idx) => (
             <SkillGroup
               key={skillGroup.category}
@@ -428,17 +472,17 @@ export default function Home() {
             aria-hidden="true"
           />
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Interested in collaboration or opportunities?
+            Discuss a Data Analytics Opportunity?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed">
-            I am open to Software Engineering, Data Analyst, and AI/ML roles. Feel free to download my CV or send a message.
+            I am available for Data Analyst, Business Intelligence, and Machine Learning opportunities. Feel free to download my CV or get in touch.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
               className="inline-flex h-11 items-center justify-center rounded-xl bg-primary px-6 text-sm font-semibold text-primary-foreground shadow transition-transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              Get in Touch
+              Contact Me
             </Link>
             <a
               href="/Muhammad-Farid-Fitriansyah-CV.docx"

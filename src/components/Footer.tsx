@@ -10,17 +10,17 @@ export default function Footer() {
           {/* Brand Panel */}
           <div className="space-y-4 xl:col-span-1">
             <span className="font-semibold text-lg tracking-tight">
-              Farid <span className="font-light text-muted-foreground">/ Software Engineer — AI &amp; Data</span>
+              Farid <span className="font-light text-muted-foreground">/ Data Analyst | BI &amp; ML</span>
             </span>
             <p className="text-sm text-muted-foreground max-w-xs leading-relaxed">
-              Muhammad Farid Fitriansyah — Computer Science graduate (GPA 3.86) specializing in Machine Learning, Data Analytics, BI, and Software Engineering.
+              Muhammad Farid Fitriansyah — Data Analyst (GPA 3.86) specializing in Business Intelligence, Machine Learning, Data Analytics, and predictive solutions.
             </p>
             <div className="inline-flex items-center gap-2 rounded-full border border-border bg-background px-3 py-1 text-xs">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
-              <span className="text-muted-foreground font-medium">Open for Opportunities</span>
+              <span className="text-muted-foreground font-medium">Open for Data Analyst Roles</span>
             </div>
           </div>
 
@@ -37,12 +37,12 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link href="/projects" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      Projects &amp; Systems
+                      Analytics Projects
                     </Link>
                   </li>
                   <li>
                     <Link href="/research" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      Research &amp; Thesis
+                      Research &amp; Studies
                     </Link>
                   </li>
                 </ul>
@@ -62,7 +62,7 @@ export default function Footer() {
                   </li>
                   <li>
                     <Link href="/contact" className="text-sm text-muted-foreground hover:text-foreground transition-colors">
-                      Contact Interface
+                      Contact
                     </Link>
                   </li>
                 </ul>
@@ -116,7 +116,7 @@ export default function Footer() {
         {/* Bottom panel */}
         <div className="mt-12 border-t border-border pt-8 md:flex md:items-center md:justify-between">
           <p className="text-xs text-muted-foreground md:order-1">
-            &copy; {new Date().getFullYear()} Muhammad Farid Fitriansyah. Universitas Samudra (GPA 3.86).
+            &copy; {new Date().getFullYear()} Muhammad Farid Fitriansyah. Data Analyst — Universitas Samudra (GPA 3.86).
           </p>
           <p className="mt-4 text-xs text-muted-foreground md:order-2 md:mt-0">
             Built with Next.js 14, React 18, TypeScript &amp; TailwindCSS.

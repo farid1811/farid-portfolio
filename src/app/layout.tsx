@@ -13,24 +13,22 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: {
-    default: "Muhammad Farid Fitriansyah — Software Engineer (AI, Data & Intelligent Systems)",
-    template: "%s | Muhammad Farid Fitriansyah",
+    default: "Muhammad Farid Fitriansyah | Data Analyst Portfolio",
+    template: "%s | Muhammad Farid Fitriansyah — Data Analyst",
   },
-  description: "Computer Science graduate (Sarjana Ilmu Komputer, GPA 3.86) from Universitas Samudra specializing in Data Analytics, Machine Learning (SGD, LSTM, RAG), BI Dashboards, and Software Engineering.",
+  description: "Data Analyst portfolio of Muhammad Farid Fitriansyah, showcasing Business Intelligence, Machine Learning, Predictive Analytics, Data Visualization, and data-driven projects.",
   keywords: [
     "Muhammad Farid Fitriansyah",
-    "Software Engineer",
-    "AI Engineer",
     "Data Analyst",
-    "Machine Learning Engineer",
-    "Universitas Samudra",
-    "Stochastic Gradient Descent",
-    "LSTM Forecasting",
-    "RAG Architecture",
-    "Clean Architecture",
+    "Business Intelligence",
+    "Machine Learning",
+    "Data Analytics",
     "Python",
-    "PHP Laravel",
-    "Next.js",
+    "SQL",
+    "MS Excel",
+    "Data Visualization",
+    "Predictive Analytics",
+    "Universitas Samudra",
   ],
   authors: [{ name: "Muhammad Farid Fitriansyah" }],
   creator: "Muhammad Farid Fitriansyah",
@@ -39,23 +37,23 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://farid-portfolio.vercel.app",
-    title: "Muhammad Farid Fitriansyah — Software Engineer (AI, Data & Intelligent Systems)",
-    description: "Computer Science graduate (Sarjana Ilmu Komputer, GPA 3.86) from Universitas Samudra specializing in Data Analytics, Machine Learning, BI, and Software Engineering.",
+    title: "Muhammad Farid Fitriansyah | Data Analyst Portfolio",
+    description: "Data Analyst portfolio of Muhammad Farid Fitriansyah, showcasing Business Intelligence, Machine Learning, Predictive Analytics, Data Visualization, and data-driven projects.",
     siteName: "Muhammad Farid Fitriansyah Portfolio",
     images: [
       {
-        url: "/og-image.png",
-        width: 1200,
-        height: 630,
-        alt: "Muhammad Farid Fitriansyah — Software Engineer Portfolio Preview",
+        url: "/images/farid-hero-blazer.webp",
+        width: 800,
+        height: 800,
+        alt: "Muhammad Farid Fitriansyah — Data Analyst Portfolio",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Muhammad Farid Fitriansyah — Software Engineer",
-    description: "Computer Science graduate specializing in AI, Machine Learning, Data Analytics, BI, and Software Engineering.",
-    images: ["/og-image.png"],
+    title: "Muhammad Farid Fitriansyah | Data Analyst Portfolio",
+    description: "Data Analyst specializing in Business Intelligence, Machine Learning, Data Visualization, and Predictive Analytics.",
+    images: ["/images/farid-hero-blazer.webp"],
     creator: "@farid1811",
   },
   robots: {
@@ -79,18 +77,11 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${inter.variable} scroll-smooth`}>
       <body className="min-h-screen flex flex-col bg-background text-foreground">
-        {/* Grain overlay for SaaS aesthetic */}
         <div className="grain-overlay" />
-        
-        {/* Navbar */}
         <Navbar />
-        
-        {/* Main Content Area */}
         <main className="flex-1 flex flex-col">
           {children}
         </main>
-        
-        {/* Footer */}
         <Footer />
       </body>
     </html>

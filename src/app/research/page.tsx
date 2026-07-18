@@ -8,31 +8,31 @@ import {
   Binary,
   Cpu,
   Database,
-  Layers,
+  LineChart,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "Research",
   description:
-    "Academic research, undergraduate thesis, and R&D projects by Muhammad Farid Fitriansyah at Universitas Samudra — constrained SGD optimization, LSTM forecasting, RAG decision systems, and ML studies.",
+    "Analytical research, undergraduate thesis, and ML forecasting studies by Muhammad Farid Fitriansyah — Data Analyst specializing in SGD optimization, LSTM forecasting, and decision analytics.",
 };
 
 const researchInterests = [
   {
-    title: "Stochastic Gradient Descent (SGD)",
-    desc: "Non-negative weight projection solvers (θ ≥ 0, bias ≥ 0) ensuring physical realism in sales & marketing regression drivers.",
+    title: "Constrained Regression & Sales Analytics",
+    desc: "Non-negative Stochastic Gradient Descent (SGD) solvers (θ ≥ 0, bias ≥ 0) ensuring physical realism in commercial driver coefficients.",
   },
   {
-    title: "Time Series & Recurrent Modeling",
-    desc: "Recurrent time-series forecasting (LSTM, GRU), log-transformations, diff restorations, and MinMaxScaler data leakage safeguards.",
+    title: "Time Series & Recurrent Forecasting",
+    desc: "Recurrent time-series forecasting (LSTM, GRU), log-transformations, diff restorations, and MinMaxScaler data leakage split safeguards.",
   },
   {
-    title: "Decision Support & RAG",
+    title: "Decision Support & Semantic Analytics",
     desc: "Multi-criteria similarity matching (TF-IDF, Cosine Similarity), semantic vector search, and Gemini LLM RAG architectures.",
   },
   {
-    title: "Data Analytics & Telemetry",
-    desc: "Interactive business intelligence dashboards (MS Excel Expert, Streamlit, Plotly), SSE training telemetry, and IQR outlier detection.",
+    title: "Business Intelligence & Telemetry",
+    desc: "Interactive BI dashboards (MS Excel Expert, Streamlit, Plotly), SSE training telemetry, and IQR outlier detection.",
   },
 ];
 
@@ -62,8 +62,8 @@ const studies = [
     Icon: Binary,
     iconBg: "bg-violet-500/10 text-violet-500",
     glowClass: "from-violet-500/3",
-    period: "Research Project — 2025 (Penerima Hibah Riset Unsam)",
-    title: "Recurrent Demand Forecasting for Commodity Analytics (Foresight IQ)",
+    period: "Research Grant Project — 2025 (Penerima Hibah Riset Unsam)",
+    title: "Time-Series Analytics & Recurrent Demand Forecasting (Foresight IQ)",
     subtitle: "Universitas Samudra Internal Research Grant • PyTorch LSTM • Test MAPE 17.29%–19.94%",
     body: "Supported by the Universitas Samudra Internal Student Research Grant (2025), this research investigated deep recurrent neural networks (LSTM) for industrial commodity demand prediction across 6 categories (Besi, Semen, Cat, Pipa, Seng, Triplek). Implemented strict Clean Architecture layer separation, log-differencing data transformations, and MinMaxScaler split lockouts to guarantee zero train/test data leakage.",
     stats: null,
@@ -92,13 +92,13 @@ export default function Research() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-16">
         <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
-          Academic Research &amp; Grants
+          Analytical Research &amp; Grants
         </span>
         <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
-          Research &amp; Studies
+          Analytical Research &amp; Studies
         </h1>
         <p className="mt-4 text-lg text-muted-foreground font-light leading-relaxed">
-          Undergraduate thesis research, internal grants, and applied studies in Machine Learning, SGD Optimization, and Decision Support Systems at Universitas Samudra.
+          Undergraduate thesis research, internal grants, and applied studies in Machine Learning, Regression Optimization, Time-Series Forecasting, and Decision Analytics at Universitas Samudra.
         </p>
       </div>
 
@@ -190,9 +190,9 @@ export default function Research() {
         })}
       </div>
 
-      {/* Research Interests grid */}
+      {/* Research Focus grid */}
       <div>
-        <h2 className="text-2xl font-bold text-foreground mb-3 text-center">Research Focus Areas</h2>
+        <h2 className="text-2xl font-bold text-foreground mb-3 text-center">Analytical Research Focus</h2>
         <p className="text-sm text-muted-foreground text-center mb-10">
           Core methodologies explored during undergraduate computer science studies and practical research.
         </p>

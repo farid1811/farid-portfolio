@@ -4,7 +4,7 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sun, Moon, Menu, X, Cpu } from "lucide-react";
+import { Sun, Moon, Menu, X, BarChart3 } from "lucide-react";
 
 const navLinks = [
   { name: "Home", href: "/" },
@@ -50,10 +50,10 @@ export default function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
           <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-primary text-primary-foreground transition-transform group-hover:scale-105">
-            <Cpu className="h-5 w-5" />
+            <BarChart3 className="h-5 w-5" />
           </div>
           <span className="font-semibold text-lg tracking-tight transition-colors group-hover:text-primary/80">
-            Farid <span className="font-light text-muted-foreground">/ Software Engineer</span>
+            Farid <span className="font-light text-muted-foreground">/ Data Analyst</span>
           </span>
         </Link>
 
@@ -94,7 +94,7 @@ export default function Navbar() {
             href="/contact"
             className="inline-flex h-9 items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-transform hover:scale-[1.02] active:scale-[0.98]"
           >
-            Get in Touch
+            Contact Me
           </Link>
         </div>
 
@@ -150,7 +150,7 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className="flex h-11 w-full items-center justify-center rounded-xl bg-primary text-primary-foreground text-sm font-medium shadow"
                 >
-                  Get in Touch
+                  Contact Me
                 </Link>
               </div>
             </div>
