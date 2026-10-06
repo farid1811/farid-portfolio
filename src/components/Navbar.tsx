@@ -4,25 +4,30 @@ import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Sun, Moon, Menu, X, BarChart3 } from "lucide-react";
-
-const navLinks = [
-  { name: "Home", href: "/" },
-  { name: "About", href: "/about" },
-  { name: "Projects", href: "/projects" },
-  { name: "Research", href: "/research" },
-  { name: "Resume", href: "/resume" },
-  { name: "Contact", href: "/contact" },
-];
+import { Sun, Moon, Menu, X, BarChart3, Globe } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
+import { translations } from "@/lib/translations";
 
 export default function Navbar() {
   const pathname = usePathname();
   const [dark, setDark] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const { lang, setLang } = useLanguage();
+  const tNav = translations[lang].nav;
+
+  const navLinks = [
+    { name: tNav.home, href: "/" },
+    { name: tNav.about, href: "/about" },
+    { name: tNav.projects, href: "/projects" },
+    { name: tNav.research, href: "/research" },
+    { name: tNav.resume, href: "/resume" },
+    { name: tNav.contact, href: "/contact" },
+  ];
 
   useEffect(() => {
-    const isDark = document.documentElement.classList.contains("dark") || 
-                   localStorage.getItem("theme") === "dark";
+    const isDark =
+      document.documentElement.classList.contains("dark") ||
+      localStorage.getItem("theme") === "dark";
     if (isDark) {
       document.documentElement.classList.add("dark");
       setDark(true);
@@ -55,10 +60,10 @@ export default function Navbar() {
           <span className="font-semibold text-lg tracking-tight transition-colors group-hover:text-primary/80">
             Farid{" "}
             <span className="font-light text-muted-foreground hidden sm:inline">
-              / Data Analyst | BI &amp; ML
+              {tNav.roleSubtitleDesktop}
             </span>
             <span className="font-light text-muted-foreground sm:hidden">
-              / Data Analyst
+              {tNav.roleSubtitleMobile}
             </span>
           </span>
         </Link>
@@ -66,10 +71,12 @@ export default function Navbar() {
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
-            const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+            const isActive =
+              pathname === link.href ||
+              (link.href !== "/" && pathname.startsWith(link.href));
             return (
               <Link
-                key={link.name}
+                key={link.href}
                 href={link.href}
                 className="relative px-4 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground"
               >
@@ -87,7 +94,34 @@ export default function Navbar() {
         </nav>
 
         {/* Action Buttons */}
-        <div className="hidden md:flex items-center gap-4">
+        <div className="hidden md:flex items-center gap-3">
+          {/* Language Switcher */}
+          <div className="flex items-center rounded-xl border border-border bg-card p-0.5 text-xs font-semibold">
+            <button
+              onClick={() => setLang("en")}
+              className={`px-2.5 py-1 rounded-lg transition-all ${
+                lang === "en"
+                  ? "bg-primary text-primary-foreground shadow-sm font-bold"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              aria-label="Switch to English"
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLang("id")}
+              className={`px-2.5 py-1 rounded-lg transition-all ${
+                lang === "id"
+                  ? "bg-primary text-primary-foreground shadow-sm font-bold"
+                  : "text-muted-foreground hover:text-foreground"
+              }`}
+              aria-label="Ganti ke Bahasa Indonesia"
+            >
+              ID
+            </button>
+          </div>
+
+          {/* Theme Toggle */}
           <button
             onClick={toggleTheme}
             className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-card text-muted-foreground hover:text-foreground transition-colors"
@@ -95,17 +129,42 @@ export default function Navbar() {
           >
             {dark ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </button>
-          
+
+          {/* Contact Button */}
           <Link
             href="/contact"
             className="inline-flex h-9 items-center justify-center rounded-xl bg-primary px-4 py-2 text-sm font-medium text-primary-foreground shadow transition-transform hover:scale-[1.02] active:scale-[0.98]"
           >
-            Contact Me
+            {tNav.contactMe}
           </Link>
         </div>
 
-        {/* Mobile menu controls */}
+        {/* Mobile controls */}
         <div className="flex md:hidden items-center gap-2">
+          {/* Mobile Language Switcher */}
+          <div className="flex items-center rounded-lg border border-border bg-card p-0.5 text-xs font-semibold">
+            <button
+              onClick={() => setLang("en")}
+              className={`px-2 py-0.5 rounded text-[11px] transition-all ${
+                lang === "en"
+                  ? "bg-primary text-primary-foreground font-bold"
+                  : "text-muted-foreground"
+              }`}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLang("id")}
+              className={`px-2 py-0.5 rounded text-[11px] transition-all ${
+                lang === "id"
+                  ? "bg-primary text-primary-foreground font-bold"
+                  : "text-muted-foreground"
+              }`}
+            >
+              ID
+            </button>
+          </div>
+
           <button
             onClick={toggleTheme}
             className="flex h-9 w-9 items-center justify-center rounded-xl border border-border bg-card text-muted-foreground hover:text-foreground"
@@ -134,10 +193,12 @@ export default function Navbar() {
           >
             <div className="space-y-1 px-4 pb-6 pt-3">
               {navLinks.map((link) => {
-                const isActive = pathname === link.href || (link.href !== "/" && pathname.startsWith(link.href));
+                const isActive =
+                  pathname === link.href ||
+                  (link.href !== "/" && pathname.startsWith(link.href));
                 return (
                   <Link
-                    key={link.name}
+                    key={link.href}
                     href={link.href}
                     onClick={() => setMobileOpen(false)}
                     className={`block px-4 py-3 rounded-xl text-base font-medium transition-colors ${
@@ -156,7 +217,7 @@ export default function Navbar() {
                   onClick={() => setMobileOpen(false)}
                   className="flex h-11 w-full items-center justify-center rounded-xl bg-primary text-primary-foreground text-sm font-medium shadow"
                 >
-                  Contact Me
+                  {tNav.contactMe}
                 </Link>
               </div>
             </div>

@@ -3,20 +3,30 @@
 import React, { useState } from "react";
 import ProjectCard from "@/components/ProjectCard";
 import { projectsData, type ProjectDomain } from "@/lib/projectsData";
-import { Sparkles, Layers, Terminal, Cpu, Database } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
 type FilterType = "all" | ProjectDomain;
 
-const filters: { id: FilterType; name: string }[] = [
-  { id: "all", name: "All Projects" },
-  { id: "data-analytics", name: "Data Analytics" },
-  { id: "business-intelligence", name: "Business Intelligence" },
-  { id: "machine-learning", name: "Machine Learning" },
-  { id: "software-systems", name: "Software & Systems" },
-];
-
 export default function Projects() {
+  const { lang } = useLanguage();
   const [activeFilter, setActiveFilter] = useState<FilterType>("all");
+
+  const filters: { id: FilterType; name: { en: string; id: string } }[] = [
+    { id: "all", name: { en: "All Projects", id: "Semua Proyek" } },
+    { id: "data-analytics", name: { en: "Data Analytics", id: "Analisis Data" } },
+    {
+      id: "business-intelligence",
+      name: { en: "Business Intelligence", id: "Business Intelligence" },
+    },
+    {
+      id: "machine-learning",
+      name: { en: "Machine Learning", id: "Machine Learning" },
+    },
+    {
+      id: "software-systems",
+      name: { en: "Software & Systems", id: "Rekayasa Sistem" },
+    },
+  ];
 
   const filteredProjects = projectsData.filter((project) => {
     if (activeFilter === "all") return true;
@@ -32,13 +42,17 @@ export default function Projects() {
       {/* Header */}
       <div className="text-center max-w-3xl mx-auto mb-12">
         <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
-          Portfolio Catalog
+          {lang === "id" ? "Katalog Portofolio" : "Portfolio Catalog"}
         </span>
         <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
-          Data Analytics &amp; Intelligent Systems
+          {lang === "id"
+            ? "Analitik Data & Sistem Cerdas"
+            : "Data Analytics & Intelligent Systems"}
         </h1>
         <p className="mt-4 text-lg text-muted-foreground font-light leading-relaxed">
-          Selected projects across data analytics, business intelligence, machine learning, and software-enabled solutions.
+          {lang === "id"
+            ? "Pilihan proyek mendalam dalam analitik data, business intelligence, machine learning, dan implementasi sistem perangkat lunak fungsional."
+            : "Selected projects across data analytics, business intelligence, machine learning, and software-enabled solutions."}
         </p>
       </div>
 
@@ -54,7 +68,7 @@ export default function Projects() {
                 : "bg-card border-border text-muted-foreground hover:text-foreground hover:bg-secondary"
             }`}
           >
-            {filter.name}
+            {filter.name[lang]}
           </button>
         ))}
       </div>
@@ -67,14 +81,18 @@ export default function Projects() {
             <div className="mb-8 border-b border-border pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
               <div>
                 <span className="text-xs font-mono font-bold text-indigo-500 uppercase tracking-wider">
-                  Tier 1 — Core Specialization
+                  {lang === "id"
+                    ? "Tier 1 — Spesialisasi Utama"
+                    : "Tier 1 — Core Specialization"}
                 </span>
                 <h2 className="text-2xl font-bold text-foreground mt-1">
                   Data Analytics &amp; Business Intelligence
                 </h2>
               </div>
               <p className="text-xs text-muted-foreground font-mono">
-                Featured predictive modeling &amp; interactive BI dashboards
+                {lang === "id"
+                  ? "Pemodelan prediktif unggulan & dashboard BI interaktif"
+                  : "Featured predictive modeling & interactive BI dashboards"}
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2">
@@ -89,19 +107,29 @@ export default function Projects() {
             <div className="mb-8 border-b border-border pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
               <div>
                 <span className="text-xs font-mono font-bold text-violet-500 uppercase tracking-wider">
-                  Tier 2 — Decision Analytics
+                  {lang === "id"
+                    ? "Tier 2 — Analitik Keputusan"
+                    : "Tier 2 — Decision Analytics"}
                 </span>
                 <h2 className="text-2xl font-bold text-foreground mt-1">
-                  AI &amp; Decision Support Systems
+                  {lang === "id"
+                    ? "AI & Sistem Pendukung Keputusan"
+                    : "AI & Decision Support Systems"}
                 </h2>
               </div>
               <p className="text-xs text-muted-foreground font-mono">
-                Semantic retrieval &amp; multi-criteria decision modeling
+                {lang === "id"
+                  ? "Penelusuran semantik & pemodelan keputusan multi-kriteria"
+                  : "Semantic retrieval & multi-criteria decision modeling"}
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2">
               {tier2Projects.map((project, idx) => (
-                <ProjectCard key={project.slug} project={project} index={idx + 4} />
+                <ProjectCard
+                  key={project.slug}
+                  project={project}
+                  index={idx + 4}
+                />
               ))}
             </div>
           </div>
@@ -111,19 +139,29 @@ export default function Projects() {
             <div className="mb-8 border-b border-border pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2">
               <div>
                 <span className="text-xs font-mono font-bold text-slate-500 uppercase tracking-wider">
-                  Tier 3 — Supporting Capabilities
+                  {lang === "id"
+                    ? "Tier 3 — Kapabilitas Pendukung"
+                    : "Tier 3 — Supporting Capabilities"}
                 </span>
                 <h2 className="text-2xl font-bold text-foreground mt-1">
-                  Software &amp; Systems Engineering
+                  {lang === "id"
+                    ? "Rekayasa Perangkat Lunak & Sistem"
+                    : "Software & Systems Engineering"}
                 </h2>
               </div>
               <p className="text-xs text-muted-foreground font-mono">
-                Full-stack implementations that operationalize data workflows
+                {lang === "id"
+                  ? "Implementasi full-stack yang mengoperasionalkan alur data"
+                  : "Full-stack implementations that operationalize data workflows"}
               </p>
             </div>
             <div className="grid gap-8 md:grid-cols-2">
               {tier3Projects.map((project, idx) => (
-                <ProjectCard key={project.slug} project={project} index={idx + 5} />
+                <ProjectCard
+                  key={project.slug}
+                  project={project}
+                  index={idx + 5}
+                />
               ))}
             </div>
           </div>
@@ -140,7 +178,11 @@ export default function Projects() {
       {/* Empty State */}
       {filteredProjects.length === 0 && (
         <div className="text-center py-20 border border-dashed border-border rounded-3xl bg-card">
-          <p className="text-sm text-muted-foreground">No projects found in this domain filter.</p>
+          <p className="text-sm text-muted-foreground">
+            {lang === "id"
+              ? "Tidak ada proyek pada filter kategori ini."
+              : "No projects found in this domain filter."}
+          </p>
         </div>
       )}
     </div>

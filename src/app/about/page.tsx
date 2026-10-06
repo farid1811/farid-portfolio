@@ -1,6 +1,7 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
-import type { Metadata } from "next";
 import {
   ShieldCheck,
   GraduationCap,
@@ -18,54 +19,86 @@ import {
   ArrowRight,
   ChevronRight,
   TrendingUp,
+  FileText,
 } from "lucide-react";
-
-export const metadata: Metadata = {
-  title: "About",
-  description:
-    "About Muhammad Farid Fitriansyah — Informatics Graduate (S.Kom, GPA 3.86) from Universitas Samudra specializing in Data Analytics, Business Intelligence, and Machine Learning.",
-};
-
-const analyticalPillars = [
-  {
-    Icon: BarChart3,
-    color: "text-indigo-500",
-    title: "Data Analytics & Preprocessing",
-    desc: "Rigorous exploratory data analysis, data cleansing, outlier detection, and split boundary isolation to prevent data leakage.",
-  },
-  {
-    Icon: PieChart,
-    color: "text-emerald-500",
-    title: "Business Intelligence & Visualization",
-    desc: "Interactive dashboards in Microsoft Excel (Pivot Tables, Slicers), Streamlit, and Plotly that translate multidimensional metrics into clear executive insights.",
-  },
-  {
-    Icon: LineChart,
-    color: "text-violet-500",
-    title: "Predictive Analytics & Machine Learning",
-    desc: "Developing constrained non-negative SGD regression (θ ≥ 0, bias ≥ 0) and PyTorch LSTM recurrent time-series forecasting models.",
-  },
-  {
-    Icon: Workflow,
-    color: "text-indigo-500",
-    title: "Full-Lifecycle Solution Development",
-    desc: "Informatics capability to bridge static analysis and functional software, implementing models into usable tools (Flask, Laravel, SQLite/MySQL).",
-  },
-];
+import { useLanguage } from "@/context/LanguageContext";
+import {
+  achievementGroups,
+  achievementsData,
+  type AchievementCategory,
+} from "@/lib/achievementsData";
+import EvidenceCard from "@/components/EvidenceCard";
+import EvidenceModal from "@/components/EvidenceModal";
 
 export default function About() {
+  const { lang, t } = useLanguage();
+  const [publicSpeakingModal, setPublicSpeakingModal] = useState(false);
+
+  const analyticalPillars = [
+    {
+      Icon: BarChart3,
+      color: "text-indigo-500",
+      title:
+        lang === "id"
+          ? "Analisis Data & Praproses"
+          : "Data Analytics & Preprocessing",
+      desc:
+        lang === "id"
+          ? "Analisis data eksploratif (EDA) yang ketat, pembersihan data, deteksi pencilan (outliers), dan isolasi batas latih/uji guna mencegah data leakage."
+          : "Rigorous exploratory data analysis, data cleansing, outlier detection, and split boundary isolation to prevent data leakage.",
+    },
+    {
+      Icon: PieChart,
+      color: "text-emerald-500",
+      title:
+        lang === "id"
+          ? "Business Intelligence & Visualisasi"
+          : "Business Intelligence & Visualization",
+      desc:
+        lang === "id"
+          ? "Dashboard interaktif di Microsoft Excel (Pivot Tables, Slicers), Looker Studio, dan Plotly yang menerjemahkan metrik multidimensi menjadi wawasan eksekutif."
+          : "Interactive dashboards in Microsoft Excel (Pivot Tables, Slicers), Looker Studio, and Plotly that translate multidimensional metrics into clear executive insights.",
+    },
+    {
+      Icon: LineChart,
+      color: "text-violet-500",
+      title:
+        lang === "id"
+          ? "Analitik Prediktif & Machine Learning"
+          : "Predictive Analytics & Machine Learning",
+      desc:
+        lang === "id"
+          ? "Mengembangkan regresi Stochastic Gradient Descent (SGD) terkendala non-negatif (θ ≥ 0, bias ≥ 0) dan peramalan sekuensial PyTorch LSTM."
+          : "Developing constrained non-negative SGD regression (θ ≥ 0, bias ≥ 0) and PyTorch LSTM recurrent time-series forecasting models.",
+    },
+    {
+      Icon: Workflow,
+      color: "text-indigo-500",
+      title:
+        lang === "id"
+          ? "Pengembangan Solusi Siklus Lengkap"
+          : "Full-Lifecycle Solution Development",
+      desc:
+        lang === "id"
+          ? "Kemampuan Informatika dalam menjembatani analisis teoritis dengan perangkat lunak fungsional (Flask, Laravel, SQLite/MySQL)."
+          : "Informatics capability to bridge static analysis and functional software, implementing models into usable tools (Flask, Laravel, SQLite/MySQL).",
+    },
+  ];
+
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
       {/* HEADER */}
       <div className="text-center max-w-3xl mx-auto mb-16">
         <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
-          Professional Biography
+          {lang === "id" ? "Biografi Profesional" : "Professional Biography"}
         </span>
         <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
-          About Farid
+          {lang === "id" ? "Tentang Farid" : "About Farid"}
         </h1>
         <p className="mt-4 text-lg text-muted-foreground font-light leading-relaxed">
-          Turning data into actionable insights through data preparation, analysis, visualization, predictive modeling, and data-driven solution development.
+          {lang === "id"
+            ? "Mengubah data menjadi wawasan bisnis nyata melalui pembersihan data, analisis kuantitatif, visualisasi, pemodelan prediktif, dan pengembangan solusi berbasis data."
+            : "Turning data into actionable insights through data preparation, analysis, visualization, predictive modeling, and data-driven solution development."}
         </p>
       </div>
 
@@ -91,26 +124,44 @@ export default function About() {
 
           <div className="w-full rounded-2xl border border-border bg-card p-5 shadow-sm space-y-3 text-sm">
             <div>
-              <p className="text-base font-bold text-foreground">Muhammad Farid Fitriansyah</p>
+              <p className="text-base font-bold text-foreground">
+                Muhammad Farid Fitriansyah
+              </p>
               <p className="text-xs text-indigo-500 font-mono font-semibold mt-0.5">
                 Data Analyst | BI &amp; Machine Learning
               </p>
             </div>
             <div className="space-y-2 text-xs text-muted-foreground font-mono">
               <div className="flex items-center gap-2">
-                <MapPin className="h-3.5 w-3.5 shrink-0 text-indigo-400" aria-hidden="true" />
+                <MapPin
+                  className="h-3.5 w-3.5 shrink-0 text-indigo-400"
+                  aria-hidden="true"
+                />
                 <span>P.Brandan, Sumatra Utara, Indonesia</span>
               </div>
               <div className="flex items-center gap-2">
-                <GraduationCap className="h-3.5 w-3.5 shrink-0 text-indigo-400" aria-hidden="true" />
+                <GraduationCap
+                  className="h-3.5 w-3.5 shrink-0 text-indigo-400"
+                  aria-hidden="true"
+                />
                 <span>Universitas Samudra (GPA 3.86)</span>
               </div>
               <div className="flex items-center gap-2">
-                <Calendar className="h-3.5 w-3.5 shrink-0 text-indigo-400" aria-hidden="true" />
-                <span>Informatics Graduate (S.Kom, 2022–2026)</span>
+                <Calendar
+                  className="h-3.5 w-3.5 shrink-0 text-indigo-400"
+                  aria-hidden="true"
+                />
+                <span>
+                  {lang === "id"
+                    ? "Lulusan Informatika (S.Kom, 2022–2026)"
+                    : "Informatics Graduate (S.Kom, 2022–2026)"}
+                </span>
               </div>
               <div className="flex items-center gap-2">
-                <Code2 className="h-3.5 w-3.5 shrink-0 text-indigo-400" aria-hidden="true" />
+                <Code2
+                  className="h-3.5 w-3.5 shrink-0 text-indigo-400"
+                  aria-hidden="true"
+                />
                 <a
                   href="https://github.com/farid1811"
                   target="_blank"
@@ -121,61 +172,69 @@ export default function About() {
                 </a>
               </div>
             </div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/5 px-3 py-1 text-[11px] text-emerald-600 dark:text-emerald-400 font-semibold font-mono">
-              <span className="relative flex h-1.5 w-1.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-emerald-500" />
-              </span>
-              Open for Data Analyst Roles
-            </div>
           </div>
         </div>
 
-        {/* Right: Narrative Bio */}
-        <div className="md:col-span-2 space-y-6">
-          <div className="space-y-4 text-muted-foreground leading-relaxed text-base font-light">
-            <p>
-              I am <strong className="text-foreground font-semibold">Muhammad Farid Fitriansyah</strong> — a <strong className="text-foreground font-semibold">Data Analyst</strong> specializing in Business Intelligence, Machine Learning, and Predictive Analytics. I graduated with a Bachelor&apos;s degree in Informatics (<strong className="text-foreground font-semibold">S.Kom, GPA 3.86 / 4.00</strong>) from <strong className="text-foreground font-semibold">Universitas Samudra</strong> (2022–2026).
+        {/* Right: Bio Narrative */}
+        <div className="md:col-span-2 space-y-6 text-foreground font-light leading-relaxed">
+          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 space-y-4">
+            <h2 className="text-xl font-bold text-foreground">
+              {lang === "id" ? "Profil Profesional" : "Professional Profile"}
+            </h2>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {lang === "id"
+                ? "Saya adalah seorang Data Analyst dengan latar belakang pendidikan Sarjana Komputer (IPK 3,86 / 4,00) dari Universitas Samudra. Fokus utama saya adalah menjembatani analisis data empiris dengan pemodelan bisnis dan solusi perangkat lunak yang dapat dioperasionalkan secara langsung."
+                : "I am a Data Analyst with an Informatics degree (GPA 3.86 / 4.00) from Universitas Samudra. My focus centers on bridging empirical quantitative analysis with practical commercial modeling and operable software architectures."}
             </p>
-            <p>
-              My professional identity is rooted in turning data into actionable insights: <strong className="text-foreground font-semibold">I understand business problems, work with data, prepare and analyze it, communicate insights through intuitive visualizations, build predictive models when appropriate, and translate findings into usable solutions.</strong>
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {lang === "id"
+                ? "Pengalaman praktis saya mencakup pembersihan dan analisis eksploratif data telemetri penjualan, perancangan dashboard interaktif di Microsoft Excel dan Looker Studio, penulisan kueri SQL di Google BigQuery, serta pemodelan regresi Stochastic Gradient Descent (SGD) terkendala pada penelitian skripsi yang didanai hibah universitas."
+                : "My hands-on experience spans exploratory telemetry analysis, interactive KPI dashboard engineering in Microsoft Excel and Looker Studio, SQL querying on Google BigQuery, and constrained Stochastic Gradient Descent (SGD) optimization formulated for institutional grant-funded thesis research."}
             </p>
-            <p>
-              My work spans from commercial sales telemetry in live commerce to industrial commodity time-series forecasting and multi-dimensional Microsoft Excel dashboards. Software engineering and web technologies remain valuable supporting capabilities, enabling me to deploy interactive analytical systems directly for stakeholders.
+            <p className="text-sm text-muted-foreground leading-relaxed">
+              {lang === "id"
+                ? "Selain keterampilan analitik dan komputasi, kepemilikan usaha Kawan Ngampus selama 18 bulan dan pengalaman koordinasi siaran di Jagoan Grup memberi saya pemahaman kuat tentang dinamika konversi konsumen, retensi audiens, dan efisiensi margin operasional."
+                : "Beyond analytical and machine learning toolsets, managing Kawan Ngampus as a business owner for 18 months and coordinating live broadcasts at Jagoan Grup provided me with an authentic grounding in conversion economics, audience retention, and operating margin protection."}
             </p>
           </div>
 
-          {/* Core Analytical Pillars */}
-          <div className="space-y-3 rounded-2xl border border-border bg-card p-6 shadow-sm">
-            <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider border-b border-border pb-3">
-              Analytical Capabilities &amp; Focus
-            </h3>
-            <ul className="space-y-3.5 pt-2">
-              {analyticalPillars.map(({ Icon, color, title, desc }) => (
-                <li key={title} className="flex gap-3 items-start text-sm text-muted-foreground">
-                  <Icon className={`h-4 w-4 ${color} shrink-0 mt-0.5`} aria-hidden="true" />
-                  <div>
-                    <strong className="text-foreground block text-xs font-mono uppercase">{title}</strong>
-                    <span className="text-xs leading-relaxed text-muted-foreground">{desc}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
+          {/* Pillars Grid */}
+          <div className="grid gap-4 sm:grid-cols-2">
+            {analyticalPillars.map(({ Icon, color, title, desc }) => (
+              <div
+                key={title}
+                className="rounded-2xl border border-border bg-card p-5 space-y-2 shadow-sm"
+              >
+                <div className="flex items-center gap-2.5">
+                  <Icon className={`h-4 w-4 ${color}`} />
+                  <h3 className="text-xs font-bold font-mono uppercase tracking-wider text-foreground">
+                    {title}
+                  </h3>
+                </div>
+                <p className="text-xs text-muted-foreground leading-relaxed">
+                  {desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
 
-      {/* AUTHENTIC EVIDENCE & DOCUMENTATION */}
-      <section className="mb-24" aria-label="Authentic documentation">
+      {/* AUTHENTIC PHOTOGRAPHIC EVIDENCE GRID */}
+      <section className="mb-24" aria-label="Visual Evidence Archive">
         <div className="text-center max-w-2xl mx-auto mb-12">
           <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
-            Authentic Evidence
+            {lang === "id" ? "Arsip Dokumentasi" : "Documentation Archive"}
           </span>
-          <h2 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
-            Academic &amp; Professional Milestones
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground">
+            {lang === "id"
+              ? "Dokumentasi & Rekam Jejak Autentik"
+              : "Authentic Photographic Records"}
           </h2>
           <p className="mt-2 text-sm text-muted-foreground font-light">
-            Verified local documentation providing real context for education, business operations, and analytics experience.
+            {lang === "id"
+              ? "Dokumentasi riil yang membuktikan kelulusan akademik, operasional siaran live shopping, dan rekognisi kompetisi bisnis."
+              : "Real-world documentation validating academic graduation, live broadcast operations, and competitive venture recognition."}
           </p>
         </div>
 
@@ -194,15 +253,19 @@ export default function About() {
             <div className="p-5 space-y-2">
               <div className="flex items-center justify-between gap-2">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-500 px-2.5 py-0.5 rounded-full">
-                  Education &amp; Graduation
+                  {lang === "id" ? "Pendidikan & Kelulusan" : "Education & Graduation"}
                 </span>
-                <span className="text-[10px] font-mono text-muted-foreground">Class of 2026</span>
+                <span className="text-[10px] font-mono text-muted-foreground">
+                  Class of 2026
+                </span>
               </div>
               <h3 className="text-base font-bold text-foreground">
                 Informatics Graduate (S.Kom) — Universitas Samudra
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Graduated with GPA 3.86 / 4.00 from Fakultas Sains dan Teknologi, Universitas Samudra. Completed undergraduate thesis in live commerce sales analytics and constrained regression modeling under Dr. Ginda Maruli Andi Siregar.
+                {lang === "id"
+                  ? "Lulus dengan IPK 3,86 / 4,00 dari Fakultas Sains dan Teknologi, Universitas Samudra. Menyelesaikan skripsi analisis penjualan live commerce dan optimasi regresi SGD terkendala di bawah bimbingan Dr. Ginda Maruli Andi Siregar."
+                  : "Graduated with GPA 3.86 / 4.00 from Fakultas Sains dan Teknologi, Universitas Samudra. Completed undergraduate thesis in live commerce sales analytics and constrained regression modeling under Dr. Ginda Maruli Andi Siregar."}
               </p>
             </div>
           </div>
@@ -221,15 +284,21 @@ export default function About() {
             <div className="p-5 space-y-2">
               <div className="flex items-center justify-between gap-2">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2.5 py-0.5 rounded-full">
-                  Professional Experience
+                  {lang === "id" ? "Pengalaman Operasional" : "Professional Experience"}
                 </span>
-                <span className="text-[10px] font-mono text-muted-foreground">Jan – Sep 2024</span>
+                <span className="text-[10px] font-mono text-muted-foreground">
+                  Jan – Sep 2024
+                </span>
               </div>
               <h3 className="text-base font-bold text-foreground">
-                Live Commerce Host &amp; Operational Coordination
+                {lang === "id"
+                  ? "Host Live Commerce & Koordinasi Operasional"
+                  : "Live Commerce Host & Operational Coordination"}
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Hands-on monitoring of real-time streaming telemetry at Jagoan Grup (tracking Rp 54M+ and Rp 19M+ broadcast sessions, viewer retention, and cart conversions). This operational foundation directly inspired the research problem addressed in Live Commerce Intelligence.
+                {lang === "id"
+                  ? "Memantau telemetri siaran langsung real-time di Jagoan Grup (mencatat sesi omzet Rp 54M+ dan Rp 19M+, retensi penonton, dan konversi keranjang). Pengalaman operasional ini menjadi inspirasi langsung perumusan masalah riset pada Live Commerce Intelligence."
+                  : "Hands-on monitoring of real-time streaming telemetry at Jagoan Grup (tracking Rp 54M+ and Rp 19M+ broadcast sessions, viewer retention, and cart conversions). This operational foundation directly inspired the research problem addressed in Live Commerce Intelligence."}
               </p>
             </div>
           </div>
@@ -248,15 +317,21 @@ export default function About() {
             <div className="p-5 space-y-2">
               <div className="flex items-center justify-between gap-2">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-violet-500/10 text-violet-500 px-2.5 py-0.5 rounded-full">
-                  Venture Achievement
+                  {lang === "id" ? "Prestasi Wirausaha" : "Venture Achievement"}
                 </span>
-                <span className="text-[10px] font-mono text-muted-foreground">October 2024</span>
+                <span className="text-[10px] font-mono text-muted-foreground">
+                  October 2024
+                </span>
               </div>
               <h3 className="text-base font-bold text-foreground">
-                1st Place Winner — Unsam StartUp Competition (USC)
+                {lang === "id"
+                  ? "Juara 1 — Unsam StartUp Competition (USC 2024)"
+                  : "1st Place Winner — Unsam StartUp Competition (USC)"}
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Awarded 1st place with institutional incubation funding (Rp 6.000.000), recognized for commercial feasibility and data-informed business strategy.
+                {lang === "id"
+                  ? "Meraih Juara 1 dengan pendanaan inkubasi institusional (Rp 6.000.000), diakui atas kelayakan komersial dan strategi bisnis terukur berbasis data."
+                  : "Awarded 1st place with institutional incubation funding (Rp 6.000.000), recognized for commercial feasibility and data-informed business strategy."}
               </p>
             </div>
           </div>
@@ -275,15 +350,19 @@ export default function About() {
             <div className="p-5 space-y-2">
               <div className="flex items-center justify-between gap-2">
                 <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-amber-500/10 text-amber-600 dark:text-amber-400 px-2.5 py-0.5 rounded-full">
-                  Business &amp; Innovation
+                  {lang === "id" ? "Bisnis & Inovasi" : "Business & Innovation"}
                 </span>
-                <span className="text-[10px] font-mono text-muted-foreground">2023 &amp; 2024</span>
+                <span className="text-[10px] font-mono text-muted-foreground">
+                  2023 &amp; 2024
+                </span>
               </div>
               <h3 className="text-base font-bold text-foreground">
                 P2MW Business Model Canvas Workshop
               </h3>
               <p className="text-xs text-muted-foreground leading-relaxed">
-                Formulating market validation, customer segment channels, and revenue stream modeling during Ministry/Belmawa funded student entrepreneurship development programs.
+                {lang === "id"
+                  ? "Merumuskan validasi pasar, saluran segmen konsumen, dan pemodelan arus pendapatan dalam program pembinaan kewirausahaan mahasiswa Kemendikbudristek/Belmawa."
+                  : "Formulating market validation, customer segment channels, and revenue stream modeling during Ministry/Belmawa funded student entrepreneurship development programs."}
               </p>
             </div>
           </div>
@@ -293,7 +372,9 @@ export default function About() {
       {/* PROFESSIONAL & BUSINESS EXPERIENCE */}
       <section className="mb-24" aria-label="Experience">
         <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
-          Work &amp; Business Experience
+          {lang === "id"
+            ? "Pengalaman Kerja & Bisnis"
+            : "Work & Business Experience"}
         </h2>
 
         <div className="space-y-8">
@@ -302,13 +383,17 @@ export default function About() {
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-border pb-4">
               <div>
                 <span className="text-xs font-mono font-bold text-indigo-500 uppercase">
-                  Digital Venture Operations
+                  {lang === "id"
+                    ? "Operasional Usaha Digital"
+                    : "Digital Venture Operations"}
                 </span>
                 <h3 className="text-xl font-bold text-foreground mt-0.5">
                   Business Owner — Kawan Ngampus
                 </h3>
                 <span className="text-xs text-muted-foreground font-mono">
-                  Affiliate Digital Business &amp; Operations
+                  {lang === "id"
+                    ? "Bisnis Digital Afiliasi & Operasional"
+                    : "Affiliate Digital Business & Operations"}
                 </span>
               </div>
               <div className="sm:text-right">
@@ -319,33 +404,57 @@ export default function About() {
             </div>
 
             <p className="mt-4 text-sm text-foreground leading-relaxed">
-              &quot;Managed an affiliate-based digital business by using sales performance and audience behavior data to support promotional strategies.&quot;
+              {lang === "id"
+                ? "“Mengelola bisnis digital berbasis afiliasi dengan memanfaatkan data performa penjualan dan perilaku audiens guna mendukung strategi promosi.”"
+                : "“Managed an affiliate-based digital business by using sales performance and audience behavior data to support promotional strategies.”"}
             </p>
 
             <div className="mt-4">
               <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-wider mb-2">
-                Core Operational Responsibilities:
+                {lang === "id"
+                  ? "Tanggung Jawab Operasional Utama:"
+                  : "Core Operational Responsibilities:"}
               </h4>
               <ul className="grid gap-2 sm:grid-cols-2 text-xs text-muted-foreground">
                 <li className="flex gap-2 items-start">
                   <span className="text-indigo-500 font-bold shrink-0">▸</span>
-                  <span>Monitored engagement and sales conversions</span>
+                  <span>
+                    {lang === "id"
+                      ? "Memantau engagement audiens dan konversi transaksi"
+                      : "Monitored engagement and sales conversions"}
+                  </span>
                 </li>
                 <li className="flex gap-2 items-start">
                   <span className="text-indigo-500 font-bold shrink-0">▸</span>
-                  <span>Evaluated campaign performance across promotion channels</span>
+                  <span>
+                    {lang === "id"
+                      ? "Mengevaluasi kinerja kampanye di berbagai kanal promosi"
+                      : "Evaluated campaign performance across promotion channels"}
+                  </span>
                 </li>
                 <li className="flex gap-2 items-start">
                   <span className="text-indigo-500 font-bold shrink-0">▸</span>
-                  <span>Developed promotional strategies based on market trends</span>
+                  <span>
+                    {lang === "id"
+                      ? "Menyusun strategi promosi berdasarkan tren permintaan pasar"
+                      : "Developed promotional strategies based on market trends"}
+                  </span>
                 </li>
                 <li className="flex gap-2 items-start">
                   <span className="text-indigo-500 font-bold shrink-0">▸</span>
-                  <span>Worked with partners and brands to coordinate offerings</span>
+                  <span>
+                    {lang === "id"
+                      ? "Bekerja sama dengan mitra dan brand untuk koordinasi penawaran"
+                      : "Worked with partners and brands to coordinate offerings"}
+                  </span>
                 </li>
                 <li className="flex gap-2 items-start sm:col-span-2">
                   <span className="text-indigo-500 font-bold shrink-0">▸</span>
-                  <span>Managed day-to-day operational activities and customer interactions</span>
+                  <span>
+                    {lang === "id"
+                      ? "Mengelola aktivitas operasional harian dan interaksi pelanggan"
+                      : "Managed day-to-day operational activities and customer interactions"}
+                  </span>
                 </li>
               </ul>
             </div>
@@ -356,10 +465,14 @@ export default function About() {
             <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-border pb-4">
               <div>
                 <span className="text-xs font-mono font-bold text-emerald-500 uppercase">
-                  Professional Operations
+                  {lang === "id"
+                    ? "Operasional Profesional"
+                    : "Professional Operations"}
                 </span>
                 <h3 className="text-xl font-bold text-foreground mt-0.5">
-                  Live Commerce Host &amp; Operational Coordinator
+                  {lang === "id"
+                    ? "Host Live Commerce & Koordinator Operasional"
+                    : "Live Commerce Host & Operational Coordinator"}
                 </h3>
                 <span className="text-xs text-muted-foreground font-mono">
                   Jagoan Grup
@@ -373,48 +486,109 @@ export default function About() {
             </div>
 
             <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
-              Managed live streaming operational sessions and promotional activities, monitoring audience interaction, engagement dynamics, and sales velocity in real time.
+              {lang === "id"
+                ? "Mengelola sesi operasional siaran live streaming dan aktivitas promosi, memantau interaksi audiens, dinamika engagement, dan kecepatan penjualan secara langsung (real-time)."
+                : "Managed live streaming operational sessions and promotional activities, monitoring audience interaction, engagement dynamics, and sales velocity in real time."}
             </p>
 
             <div className="mt-4">
               <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-wider mb-2">
-                Operational Activities:
+                {lang === "id" ? "Aktivitas Operasional:" : "Operational Activities:"}
               </h4>
               <ul className="grid gap-2 sm:grid-cols-2 text-xs text-muted-foreground">
                 <li className="flex gap-2 items-start">
                   <span className="text-emerald-500 font-bold shrink-0">▸</span>
-                  <span>Managed live streaming operations and executed promotional campaigns</span>
+                  <span>
+                    {lang === "id"
+                      ? "Mengelola operasional siaran live streaming dan eksekusi kampanye"
+                      : "Managed live streaming operations and executed promotional campaigns"}
+                  </span>
                 </li>
                 <li className="flex gap-2 items-start">
                   <span className="text-emerald-500 font-bold shrink-0">▸</span>
-                  <span>Analyzed broadcast performance, engagement, and sales trends</span>
+                  <span>
+                    {lang === "id"
+                      ? "Menganalisis performa siaran, engagement, dan tren penjualan"
+                      : "Analyzed broadcast performance, engagement, and sales trends"}
+                  </span>
                 </li>
                 <li className="flex gap-2 items-start">
                   <span className="text-emerald-500 font-bold shrink-0">▸</span>
-                  <span>Coordinated with the team on broadcast schedules and promotional strategies</span>
+                  <span>
+                    {lang === "id"
+                      ? "Mengkoordinasikan jadwal siaran dan strategi promosi tim"
+                      : "Coordinated with the team on broadcast schedules and promotional strategies"}
+                  </span>
                 </li>
                 <li className="flex gap-2 items-start">
                   <span className="text-emerald-500 font-bold shrink-0">▸</span>
-                  <span>Enhanced audience engagement through effective product communication</span>
+                  <span>
+                    {lang === "id"
+                      ? "Meningkatkan engagement penonton melalui komunikasi produk yang persuasif"
+                      : "Enhanced audience engagement through effective product communication"}
+                  </span>
                 </li>
               </ul>
             </div>
 
+            {/* Supporting Public Speaking Credential Callout (PART 9) */}
+            <div className="mt-6 pt-4 border-t border-border/80 flex flex-wrap items-center justify-between gap-3 text-xs">
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <ShieldCheck className="h-4 w-4 text-emerald-500 shrink-0" />
+                <span>
+                  {lang === "id"
+                    ? "Didukung dokumentasi kursus Public Speaking (LKP One Speaking Course, 2022)."
+                    : "Supported by Public Speaking Course documentation (LKP One Speaking Course, 2022)."}
+                </span>
+              </div>
+              <button
+                onClick={() => setPublicSpeakingModal(true)}
+                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg border border-border bg-card hover:bg-secondary text-foreground text-xs font-medium transition-colors"
+              >
+                <FileText className="h-3.5 w-3.5 text-muted-foreground" />
+                <span>
+                  {lang === "id"
+                    ? "Lihat Sertifikat Public Speaking (PDF)"
+                    : "View Public Speaking Certificate (PDF)"}
+                </span>
+              </button>
+            </div>
+
             {/* Contextual Pipeline Banner */}
-            <div className="mt-6 rounded-xl border border-border bg-background/60 p-4">
+            <div className="mt-4 rounded-xl border border-border bg-background/60 p-4">
               <span className="block text-[10px] font-mono uppercase tracking-wider text-muted-foreground font-bold mb-2">
-                Conceptual Pipeline &amp; Evolution
+                {lang === "id"
+                  ? "Pipeline Konseptual & Evolusi Riset"
+                  : "Conceptual Pipeline & Evolution"}
               </span>
               <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-muted-foreground">
-                <span className="text-foreground font-semibold">Real Business Context</span>
+                <span className="text-foreground font-semibold">
+                  {lang === "id" ? "Konteks Bisnis Nyata" : "Real Business Context"}
+                </span>
                 <span>→</span>
-                <span className="text-foreground font-semibold">Live Commerce Experience</span>
+                <span className="text-foreground font-semibold">
+                  {lang === "id"
+                    ? "Pengalaman Live Commerce"
+                    : "Live Commerce Experience"}
+                </span>
                 <span>→</span>
-                <span className="text-indigo-500 font-semibold">Academic Analytics Research</span>
+                <span className="text-indigo-500 font-semibold">
+                  {lang === "id"
+                    ? "Riset Skripsi Analitik"
+                    : "Academic Analytics Research"}
+                </span>
                 <span>→</span>
-                <span className="text-indigo-500 font-semibold">Predictive Model (SGD)</span>
+                <span className="text-indigo-500 font-semibold">
+                  {lang === "id"
+                    ? "Model Prediktif (SGD)"
+                    : "Predictive Model (SGD)"}
+                </span>
                 <span>→</span>
-                <span className="text-foreground font-semibold">Interactive Data Solution</span>
+                <span className="text-foreground font-semibold">
+                  {lang === "id"
+                    ? "Solusi Data Interaktif"
+                    : "Interactive Data Solution"}
+                </span>
               </div>
             </div>
           </div>
@@ -424,7 +598,9 @@ export default function About() {
       {/* EDUCATION SECTION */}
       <section className="mb-24" aria-label="Education">
         <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
-          Education &amp; Academic Credentials
+          {lang === "id"
+            ? "Pendidikan & Kualifikasi Akademik"
+            : "Education & Academic Credentials"}
         </h2>
         <div className="relative border-l-2 border-border ml-4 sm:ml-6 space-y-8 pl-6 sm:pl-8">
           <div className="relative">
@@ -434,29 +610,55 @@ export default function About() {
             <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
               <div className="flex flex-wrap items-start justify-between gap-2">
                 <div>
-                  <h3 className="font-bold text-foreground text-lg">Universitas Samudra</h3>
+                  <h3 className="font-bold text-foreground text-lg">
+                    Universitas Samudra
+                  </h3>
                   <p className="text-sm text-indigo-500 font-mono font-semibold mt-0.5">
-                    Informatics Graduate (S.Kom) — Program Studi Informatika
+                    {lang === "id"
+                      ? "Sarjana Komputer (S.Kom) — Program Studi Informatika"
+                      : "Informatics Graduate (S.Kom) — Program Studi Informatika"}
                   </p>
-                  <p className="text-xs text-muted-foreground font-mono mt-0.5">Aceh, Indonesia</p>
+                  <p className="text-xs text-muted-foreground font-mono mt-0.5">
+                    Aceh, Indonesia
+                  </p>
                 </div>
                 <div className="text-right">
                   <span className="inline-block text-xs font-mono font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/20">
                     GPA: 3.86 / 4.00
                   </span>
-                  <span className="block text-xs text-muted-foreground font-mono mt-1">2022 — 2026</span>
+                  <span className="block text-xs text-muted-foreground font-mono mt-1">
+                    2022 — 2026
+                  </span>
                 </div>
               </div>
 
               <div className="mt-4 border-t border-border pt-4 text-xs space-y-2 text-muted-foreground leading-relaxed">
                 <p>
-                  <strong className="text-foreground">Undergraduate Thesis:</strong> <em>Analisis dan Prediksi Penjualan Menggunakan Stochastic Gradient Descent (SGD) pada Live Commerce</em>
+                  <strong className="text-foreground">
+                    {lang === "id" ? "Judul Skripsi:" : "Undergraduate Thesis:"}
+                  </strong>{" "}
+                  <em>
+                    Analisis dan Prediksi Penjualan Menggunakan Stochastic
+                    Gradient Descent (SGD) pada Live Commerce
+                  </em>
                 </p>
                 <p>
-                  <strong className="text-foreground">Thesis Advisor:</strong> Dr. Ginda Maruli Andi Siregar
+                  <strong className="text-foreground">
+                    {lang === "id"
+                      ? "Dosen Pembimbing:"
+                      : "Thesis Advisor:"}
+                  </strong>{" "}
+                  Dr. Ginda Maruli Andi Siregar, S.T., M.T. &amp; Teuku Radillah,
+                  S.T., M.Cs.
                 </p>
                 <p>
-                  <strong className="text-foreground">Academic Focus:</strong> Data Analytics, Machine Learning, Predictive Modeling, &amp; Business Intelligence Systems.
+                  <strong className="text-foreground">
+                    {lang === "id"
+                      ? "Fokus Akademik:"
+                      : "Academic Focus:"}
+                  </strong>{" "}
+                  Data Analytics, Machine Learning, Predictive Modeling, &amp;
+                  Business Intelligence Systems.
                 </p>
               </div>
 
@@ -483,54 +685,66 @@ export default function About() {
         </div>
       </section>
 
-      {/* VERIFIED ACHIEVEMENTS & GRANTS */}
-      <section className="mb-16" aria-label="Achievements">
-        <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
-          Grants &amp; Achievements
-        </h2>
-        <div className="grid gap-4 md:grid-cols-2">
-          {[
-            {
-              title: "Penerima Hibah Riset Mahasiswa Internal",
-              org: "Universitas Samudra",
-              year: "2025",
-              desc: "Awarded internal student research grant funding for AI and commodity time-series forecasting research.",
-            },
-            {
-              title: "Finalis Kompetisi Bisnis Regional II",
-              org: "LPDP",
-              year: "Februari 2025",
-              desc: "Selected as regional finalist in LPDP Business Competition II based on commercial venture feasibility.",
-            },
-            {
-              title: "Pemenang Unsam StartUp Competition (USC)",
-              org: "Universitas Samudra",
-              year: "Oktober 2024",
-              desc: "1st Place Winner in university-wide startup competition with institutional incubation funding (Rp 6.000.000).",
-            },
-            {
-              title: "Penerima Pendanaan P2MW",
-              org: "Universitas Samudra / Belmawa",
-              year: "2023 & 2024",
-              desc: "Two-time recipient of student entrepreneurship development funding for digital business ventures.",
-            },
-          ].map((item) => (
-            <div key={item.title} className="rounded-xl border border-border bg-card p-5 shadow-sm flex gap-4">
-              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-indigo-500/10 text-indigo-500 shrink-0">
-                <Award className="h-5 w-5" aria-hidden="true" />
-              </div>
-              <div className="space-y-1">
-                <div className="flex justify-between items-start gap-2">
-                  <h3 className="font-bold text-foreground text-sm leading-snug">{item.title}</h3>
-                  <span className="text-[10px] font-mono bg-secondary text-muted-foreground px-2 py-0.5 rounded shrink-0">{item.year}</span>
+      {/* CERTIFICATIONS & ACHIEVEMENTS SECTION (PART 8: 4 THEMATIC CLUSTERS) */}
+      <section className="mb-16" aria-label="Certifications and Achievements">
+        <div className="text-center max-w-2xl mx-auto mb-16">
+          <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
+            {lang === "id" ? "Kredensial Terverifikasi" : "Verified Credentials"}
+          </span>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            {lang === "id"
+              ? "Sertifikasi & Rekam Jejak Pencapaian"
+              : "Certifications & Achievements"}
+          </h2>
+          <p className="mt-3 text-sm text-muted-foreground font-light leading-relaxed">
+            {lang === "id"
+              ? "Kumpulan bukti resmi yang dikelompokkan secara tematik: kompetensi analitik teknis, pendanaan hibah penelitian, rekognisi kompetisi bisnis, dan inkubasi wirausaha."
+              : "Thematic clusters of authentic official credentials: technical analytics competencies, academic research grants, business competitions, and enterprise incubation."}
+          </p>
+        </div>
+
+        <div className="space-y-16">
+          {achievementGroups.map((group) => {
+            const items = achievementsData.filter(
+              (item) => item.category === group.category && !item.isSecondary
+            );
+            if (items.length === 0) return null;
+
+            return (
+              <div key={group.category} className="space-y-6">
+                <div className="border-b border-border pb-3">
+                  <h3 className="text-xl font-bold text-foreground">
+                    {group.title[lang]}
+                  </h3>
+                  <p className="text-xs text-muted-foreground mt-1 font-light">
+                    {group.subtitle[lang]}
+                  </p>
                 </div>
-                <p className="text-xs text-indigo-500 font-mono font-medium">{item.org}</p>
-                <p className="text-xs text-muted-foreground leading-relaxed pt-1">{item.desc}</p>
+
+                <div className="grid gap-6 md:grid-cols-2">
+                  {items.map((item) => (
+                    <EvidenceCard key={item.id} item={item} />
+                  ))}
+                </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </section>
+
+      {/* Public Speaking Modal for Jagoan Grup Secondary Evidence */}
+      <EvidenceModal
+        isOpen={publicSpeakingModal}
+        onClose={() => setPublicSpeakingModal(false)}
+        title={
+          lang === "id"
+            ? "Sertifikat Kursus Public Speaking"
+            : "Public Speaking Certification"
+        }
+        organization="LKP One Speaking Course, Langsa"
+        fileUrl="/evidence/supporting/public-speaking-certificate.pdf"
+        badge="Supporting Credential"
+      />
     </div>
   );
 }

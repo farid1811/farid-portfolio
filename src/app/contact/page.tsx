@@ -3,8 +3,14 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Mail, MessageSquare, ShieldCheck, HelpCircle, MapPin, ChevronDown, ChevronUp, MessageCircle } from "lucide-react";
+import { useLanguage } from "@/context/LanguageContext";
 
-const faqs = [
+interface FaqData {
+  q: string;
+  a: string;
+}
+
+const faqsEn: FaqData[] = [
   {
     q: "What is your primary professional focus and background?",
     a: "I am a Data Analyst specializing in Business Intelligence, Machine Learning, and Predictive Analytics. I graduated with an Informatics degree (S.Kom, GPA 3.86 / 4.00) from Universitas Samudra, with hands-on experience in regression modeling, time-series forecasting, and Microsoft Excel dashboards.",
@@ -23,7 +29,26 @@ const faqs = [
   },
 ];
 
-function FaqItem({ faq }: { faq: typeof faqs[0] }) {
+const faqsId: FaqData[] = [
+  {
+    q: "Apa fokus profesional utama dan latar belakang pendidikan Anda?",
+    a: "Saya adalah seorang Data Analyst dengan spesialisasi pada Business Intelligence, Machine Learning, dan Analitik Prediktif. Saya lulusan Sarjana Komputer (S.Kom, IPK 3.86 / 4.00) Informatika Universitas Samudra, dengan pengalaman langsung dalam pemodelan regresi, peramalan time-series, dan perancangan dashboard Microsoft Excel.",
+  },
+  {
+    q: "Tools dan teknologi apa yang Anda gunakan dalam workflow analisis data?",
+    a: "Stack analitik utama saya mencakup Python (Pandas, NumPy, Scikit-learn, PyTorch), SQL (MySQL, SQLite), dan Microsoft Excel (Pivot Tables, Advanced Slicers, Data Cleansing). Untuk Business Intelligence dan pelaporan, saya menggunakan Streamlit, Plotly, dan Chart.js, didukung kemampuan integrasi aplikasi menggunakan Flask dan Laravel.",
+  },
+  {
+    q: "Bagaimana pendekatan Anda dalam memecahkan masalah bisnis dengan data?",
+    a: "Saya menerapkan metodologi analitik terstruktur: Memahami tujuan operasional bisnis → Mengumpulkan data relevan → Membersihkan dataset dengan perlindungan kebocoran data (data leakage) → Mengeksplorasi tren dan korelasi → Menerapkan model statistik atau machine learning (misalnya constrained SGD, LSTM) saat dibutuhkan → Mengomunikasikan temuan melalui dashboard interaktif dan rekomendasi terarah.",
+  },
+  {
+    q: "Peran atau peluang seperti apa yang Anda minati saat ini?",
+    a: "Saya terbuka untuk posisi full-time sebagai Data Analyst, Business Intelligence, dan Machine Learning, serta peluang konsultasi data dan proyek analisis independen.",
+  },
+];
+
+function FaqItem({ faq }: { faq: FaqData }) {
   const [open, setOpen] = useState(false);
   return (
     <div className="border-b border-border last:border-0">
@@ -51,8 +76,12 @@ function FaqItem({ faq }: { faq: typeof faqs[0] }) {
 }
 
 export default function Contact() {
+  const { lang } = useLanguage();
+  const isId = lang === "id";
   const [formState, setFormState] = useState({ name: "", email: "", org: "", msg: "" });
   const [submitted, setSubmitted] = useState(false);
+
+  const faqs = isId ? faqsId : faqsEn;
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,13 +98,15 @@ export default function Contact() {
         className="text-center max-w-3xl mx-auto mb-16"
       >
         <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
-          Direct Contact
+          {isId ? "Kontak Langsung" : "Direct Contact"}
         </span>
         <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
-          Let&apos;s Connect
+          {isId ? "Mari Terhubung" : "Let's Connect"}
         </h1>
         <p className="mt-4 text-lg text-muted-foreground font-light leading-relaxed">
-          Interested in data analytics, business intelligence, or data-driven projects? Let&apos;s connect.
+          {isId
+            ? "Tertarik berkolaborasi dalam analitik data, business intelligence, atau proyek berbasis data? Mari terhubung."
+            : "Interested in data analytics, business intelligence, or data-driven projects? Let's connect."}
         </p>
       </motion.div>
 
@@ -89,7 +120,7 @@ export default function Contact() {
         >
           <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
             <MessageSquare className="h-5 w-5 text-indigo-500" />
-            Send a Direct Message
+            {isId ? "Kirim Pesan Langsung" : "Send a Direct Message"}
           </h3>
 
           {submitted ? (
@@ -101,15 +132,19 @@ export default function Contact() {
               <div className="inline-flex h-14 w-14 items-center justify-center rounded-full bg-emerald-500/10 text-emerald-500 ring-4 ring-emerald-500/20">
                 <ShieldCheck className="h-7 w-7" />
               </div>
-              <h4 className="text-base font-bold text-foreground">Message Dispatched</h4>
+              <h4 className="text-base font-bold text-foreground">
+                {isId ? "Pesan Berhasil Terkirim" : "Message Dispatched"}
+              </h4>
               <p className="text-sm text-muted-foreground max-w-xs mx-auto leading-relaxed">
-                Thank you. Your message has been received. I will respond to your email address shortly.
+                {isId
+                  ? "Terima kasih. Pesan Anda telah diterima. Saya akan segera merespons ke alamat email Anda."
+                  : "Thank you. Your message has been received. I will respond to your email address shortly."}
               </p>
               <button
                 onClick={() => setSubmitted(false)}
                 className="text-xs text-indigo-500 hover:underline font-mono"
               >
-                Send another message
+                {isId ? "Kirim pesan lain" : "Send another message"}
               </button>
             </motion.div>
           ) : (
@@ -117,7 +152,7 @@ export default function Contact() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-1.5">
                   <label htmlFor="contact-name" className="text-xs font-bold text-muted-foreground uppercase font-mono">
-                    Name *
+                    {isId ? "Nama Lengkap *" : "Name *"}
                   </label>
                   <input
                     id="contact-name"
@@ -131,7 +166,7 @@ export default function Contact() {
                 </div>
                 <div className="space-y-1.5">
                   <label htmlFor="contact-email" className="text-xs font-bold text-muted-foreground uppercase font-mono">
-                    Email Address *
+                    {isId ? "Alamat Email *" : "Email Address *"}
                   </label>
                   <input
                     id="contact-email"
@@ -147,7 +182,7 @@ export default function Contact() {
 
               <div className="space-y-1.5">
                 <label htmlFor="contact-org" className="text-xs font-bold text-muted-foreground uppercase font-mono">
-                  Organization / Company
+                  {isId ? "Instansi / Perusahaan" : "Organization / Company"}
                 </label>
                 <input
                   id="contact-org"
@@ -161,7 +196,7 @@ export default function Contact() {
 
               <div className="space-y-1.5">
                 <label htmlFor="contact-msg" className="text-xs font-bold text-muted-foreground uppercase font-mono">
-                  Message *
+                  {isId ? "Pesan *" : "Message *"}
                 </label>
                 <textarea
                   id="contact-msg"
@@ -169,7 +204,11 @@ export default function Contact() {
                   rows={5}
                   value={formState.msg}
                   onChange={(e) => setFormState({ ...formState, msg: e.target.value })}
-                  placeholder="Share details regarding data opportunities, analytics projects, or inquiries..."
+                  placeholder={
+                    isId
+                      ? "Tuliskan detail terkait peluang data, proyek analitik, atau pertanyaan kerja sama..."
+                      : "Share details regarding data opportunities, analytics projects, or inquiries..."
+                  }
                   className="w-full px-3.5 py-2.5 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all resize-none"
                 />
               </div>
@@ -178,7 +217,7 @@ export default function Contact() {
                 type="submit"
                 className="w-full h-11 inline-flex items-center justify-center rounded-xl bg-primary text-sm font-semibold text-primary-foreground shadow transition-all hover:scale-[1.01] active:scale-[0.99] hover:opacity-90"
               >
-                Send Message
+                {isId ? "Kirim Pesan" : "Send Message"}
               </button>
             </form>
           )}
@@ -194,7 +233,7 @@ export default function Contact() {
           {/* Direct Coordinates */}
           <div className="rounded-3xl border border-border bg-card p-6 shadow-sm space-y-4">
             <h3 className="text-sm font-bold text-foreground font-mono uppercase tracking-wider border-b border-border pb-3">
-              Direct Coordinates
+              {isId ? "Kontak & Alamat Langsung" : "Direct Coordinates"}
             </h3>
             <div className="space-y-3.5 text-xs text-muted-foreground font-mono">
               <a href="mailto:mhdfarid1811@gmail.com" className="flex items-center gap-3.5 hover:text-foreground transition-colors group">
@@ -242,11 +281,13 @@ export default function Contact() {
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
               <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase font-mono tracking-wider">
-                Open for Opportunities
+                {isId ? "Terbuka untuk Peluang" : "Open for Opportunities"}
               </span>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Available for Data Analyst, Business Intelligence, and Machine Learning positions and consulting projects.
+              {isId
+                ? "Tersedia untuk posisi Data Analyst, Business Intelligence, Machine Learning, serta proyek konsultasi analitik."
+                : "Available for Data Analyst, Business Intelligence, and Machine Learning positions and consulting projects."}
             </p>
           </div>
 
@@ -254,7 +295,7 @@ export default function Contact() {
           <div className="rounded-3xl border border-border bg-card p-6 shadow-sm">
             <h3 className="text-sm font-bold text-foreground font-mono uppercase tracking-wider border-b border-border pb-3 flex items-center gap-1.5 mb-2">
               <HelpCircle className="h-4 w-4 text-indigo-500" />
-              Frequently Asked Questions
+              {isId ? "Pertanyaan yang Sering Diajukan" : "Frequently Asked Questions"}
             </h3>
             <div>
               {faqs.map((faq) => (

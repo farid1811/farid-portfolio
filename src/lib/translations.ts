@@ -1,0 +1,166 @@
+export const translations = {
+  en: {
+    nav: {
+      home: "Home",
+      about: "About",
+      projects: "Projects",
+      research: "Research",
+      resume: "Resume",
+      contact: "Contact",
+      contactMe: "Contact Me",
+      roleSubtitleDesktop: "/ Data Analyst | BI & ML",
+      roleSubtitleMobile: "/ Data Analyst",
+    },
+    hero: {
+      badge: "DATA ANALYST · BUSINESS INTELLIGENCE · MACHINE LEARNING",
+      greeting: "Hi, I'm",
+      headline: "Muhammad Farid Fitriansyah",
+      role: "Transforming Complex Data into Actionable Business Intelligence & Reliable Predictive Models",
+      summary:
+        "Information Technology graduate (GPA 3.86/4.00) with proven expertise in exploratory data analysis, KPI dashboard engineering in Excel & Looker Studio, SQL/BigQuery querying, and constrained machine learning optimization. Focused on driving commercial clarity through rigorous analytics.",
+      ctaProjects: "Explore Case Studies",
+      ctaResume: "View Resume & CV",
+      ctaContact: "Get in Touch",
+      verifiedMetrics: "Verified Ground-Truth Performance",
+    },
+    metrics: {
+      gpa: "Academic Excellence",
+      gpaDesc: "GPA 3.86 / 4.00 · Top Graduate",
+      research: "Research Regression Model",
+      researchDesc: "R² 51.26% · MAE 9.68 items",
+      forecasting: "Commodity Forecasting",
+      forecastingDesc: "MAPE 17.29% · 6 Product Lines",
+      business: "E-Commerce Experience",
+      businessDesc: "18 Months Business Ownership",
+    },
+    featured: {
+      badge: "FEATURED WORK",
+      title: "Featured Case Studies",
+      subtitle:
+        "Deep-dive technical case studies across predictive analytics, business intelligence dashboards, and machine learning pipelines.",
+      viewAll: "View All Projects",
+    },
+    certificationsSection: {
+      badge: "CREDENTIALS & RECOGNITION",
+      title: "Certifications & Verified Evidence",
+      subtitle:
+        "Official credentials spanning Data Analytics pipelines, national competency standards, university research grants, and entrepreneurship incubation.",
+      viewEvidence: "View Verified Document",
+    },
+    skillsSection: {
+      badge: "CORE COMPETENCIES",
+      title: "Technical Skills & Domain Expertise",
+      subtitle:
+        "Structured stack organized by analytical hierarchy — from core data analysis and BI reporting to applied machine learning architectures.",
+      tier1Title: "Data Analytics & Core Pipeline",
+      tier1Desc: "Exploratory analysis, data cleaning, advanced statistical operations, and querying.",
+      tier2Title: "Business Intelligence & Reporting",
+      tier2Desc: "Interactive KPI dashboards, executive reporting, and visual scenario analysis.",
+      tier3Title: "Machine Learning & Modeling",
+      tier3Desc: "Constrained regression optimization, neural sequence forecasting, and validation.",
+      tier4Title: "Software & System Engineering",
+      tier4Desc: "Backend services, database administration, REST APIs, and full-stack solutions.",
+    },
+    ctaSection: {
+      title: "Ready to Discuss Data Analytics or BI Opportunities?",
+      subtitle:
+        "Whether you're looking for deep analytical problem-solving, dashboard architecture, or predictive modeling, let's connect.",
+      getInTouch: "Get in Touch",
+      downloadCv: "Download CV",
+    },
+    footer: {
+      tagline:
+        "Data Analyst specializing in Business Intelligence, data preparation, predictive modeling, and executive KPI reporting.",
+      navigation: "Navigation",
+      domains: "Specializations",
+      da: "Data Analytics",
+      bi: "Business Intelligence",
+      ml: "Machine Learning",
+      systems: "Software Systems",
+      status: "Available for Data Analyst & BI Roles",
+      rights: "All rights reserved.",
+    },
+  },
+  id: {
+    nav: {
+      home: "Beranda",
+      about: "Tentang",
+      projects: "Proyek",
+      research: "Riset",
+      resume: "Resume",
+      contact: "Kontak",
+      contactMe: "Hubungi Saya",
+      roleSubtitleDesktop: "/ Data Analyst | BI & ML",
+      roleSubtitleMobile: "/ Data Analyst",
+    },
+    hero: {
+      badge: "DATA ANALYST · BUSINESS INTELLIGENCE · MACHINE LEARNING",
+      greeting: "Halo, saya",
+      headline: "Muhammad Farid Fitriansyah",
+      role: "Mengubah Kompleksitas Data Menjadi Business Intelligence dan Model Prediktif yang Andal",
+      summary:
+        "Lulusan Teknologi Informasi (IPK 3,86 / 4,00) dengan kompetensi teruji dalam analisis data eksploratif, perancangan dashboard KPI Excel & Looker Studio, kueri SQL/BigQuery, serta optimasi machine learning. Berfokus menghadirkan kejelasan bisnis berbasis data empiris.",
+      ctaProjects: "Lihat Studi Kasus",
+      ctaResume: "Lihat Resume & CV",
+      ctaContact: "Hubungi Saya",
+      verifiedMetrics: "Performa Metrik Terverifikasi",
+    },
+    metrics: {
+      gpa: "Prestasi Akademik",
+      gpaDesc: "IPK 3,86 / 4,00 · Lulusan Terbaik",
+      research: "Model Regresi Riset",
+      researchDesc: "R² 51,26% · MAE 9,68 item",
+      forecasting: "Peramalan Komoditas",
+      forecastingDesc: "MAPE 17,29% · 6 Lini Produk",
+      business: "Pengalaman Bisnis",
+      businessDesc: "18 Bulan Operasional Usaha",
+    },
+    featured: {
+      badge: "STUDI KASUS UNGGULAN",
+      title: "Studi Kasus Pilihan",
+      subtitle:
+        "Eksplorasi mendalam pada analitik prediktif, dashboard business intelligence eksekutif, dan pipeline machine learning.",
+      viewAll: "Lihat Semua Proyek",
+    },
+    certificationsSection: {
+      badge: "KREDENSIAL & REKOGNISI",
+      title: "Sertifikasi & Bukti Terverifikasi",
+      subtitle:
+        "Kredensial resmi yang mencakup pipeline Data Analytics, standar kompetensi nasional (SKKNI), hibah riset universitas, dan inkubasi wirausaha.",
+      viewEvidence: "Lihat Dokumen Terverifikasi",
+    },
+    skillsSection: {
+      badge: "KOMPETENSI UTAMA",
+      title: "Keahlian Teknis & Domain Analitik",
+      subtitle:
+        "Struktur keahlian berbasis hierarki analitik — dari eksplorasi data dan visualisasi BI hingga arsitektur model machine learning.",
+      tier1Title: "Data Analytics & Pipeline Inti",
+      tier1Desc: "Analisis data eksploratif (EDA), pembersihan data, operasi statistik, dan kueri SQL.",
+      tier2Title: "Business Intelligence & Pelaporan",
+      tier2Desc: "Dashboard KPI interaktif, pelaporan eksekutif, dan analisis skenario visual.",
+      tier3Title: "Machine Learning & Pemodelan",
+      tier3Desc: "Optimasi regresi berpenalti, peramalan sekuensial LSTM, dan evaluasi metrik.",
+      tier4Title: "Software & Rekayasa Sistem",
+      tier4Desc: "Layanan backend, administrasi basis data, REST API, dan integrasi sistem.",
+    },
+    ctaSection: {
+      title: "Tertarik Mendiskusikan Peluang Data Analyst atau BI?",
+      subtitle:
+        "Jika Anda membutuhkan pemecahan masalah analitik yang mendalam, arsitektur dashboard, atau pemodelan prediktif, mari terhubung.",
+      getInTouch: "Hubungi Saya",
+      downloadCv: "Unduh CV",
+    },
+    footer: {
+      tagline:
+        "Data Analyst dengan spesialisasi Business Intelligence, pembersihan data, pemodelan prediktif, dan pelaporan KPI eksekutif.",
+      navigation: "Navigasi",
+      domains: "Spesialisasi",
+      da: "Data Analytics",
+      bi: "Business Intelligence",
+      ml: "Machine Learning",
+      systems: "Rekayasa Sistem",
+      status: "Terbuka untuk Peluang Data Analyst & BI",
+      rights: "Hak cipta dilindungi undang-undang.",
+    },
+  },
+};
