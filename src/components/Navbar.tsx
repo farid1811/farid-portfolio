@@ -53,7 +53,13 @@ export default function Navbar() {
             <BarChart3 className="h-5 w-5" />
           </div>
           <span className="font-semibold text-lg tracking-tight transition-colors group-hover:text-primary/80">
-            Farid <span className="font-light text-muted-foreground">/ Data Analyst</span>
+            Farid{" "}
+            <span className="font-light text-muted-foreground hidden sm:inline">
+              / Data Analyst | BI &amp; ML
+            </span>
+            <span className="font-light text-muted-foreground sm:hidden">
+              / Data Analyst
+            </span>
           </span>
         </Link>
 

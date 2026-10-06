@@ -34,3 +34,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# raw root source files
+/*.jpeg
+/*.jpg
+/*.png
+/*.pptx

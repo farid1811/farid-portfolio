@@ -2,7 +2,20 @@
 
 import React from "react";
 import Image from "next/image";
-import { Printer, Mail, Briefcase, GraduationCap, Code, MapPin, Award, UserCheck, Building, Rocket, BarChart3 } from "lucide-react";
+import {
+  Printer,
+  Mail,
+  Briefcase,
+  GraduationCap,
+  Code,
+  MapPin,
+  Award,
+  UserCheck,
+  Building,
+  Rocket,
+  BarChart3,
+  Phone,
+} from "lucide-react";
 
 export default function Resume() {
   const handlePrint = () => {
@@ -14,7 +27,9 @@ export default function Resume() {
       <div className="mx-auto max-w-4xl">
         {/* Actions bar (hidden during print) */}
         <div className="flex justify-between items-center mb-8 bg-card border border-border rounded-2xl p-4 shadow-sm print:hidden">
-          <span className="text-sm font-semibold text-foreground">Official Resume — Muhammad Farid Fitriansyah</span>
+          <span className="text-sm font-semibold text-foreground">
+            Official Resume — Muhammad Farid Fitriansyah
+          </span>
           <div className="flex gap-2">
             <a
               href="/Muhammad-Farid-Fitriansyah-CV.docx"
@@ -53,10 +68,10 @@ export default function Resume() {
                   Muhammad Farid Fitriansyah
                 </h1>
                 <p className="text-sm sm:text-base font-semibold text-indigo-500 font-mono uppercase tracking-wider">
-                  Data Analyst | Business Intelligence &amp; Machine Learning
+                  Data Analyst | Business Intelligence | Machine Learning
                 </p>
-                <p className="text-xs text-muted-foreground max-w-lg leading-relaxed">
-                  Computer Science graduate (Sarjana Ilmu Komputer, GPA 3.86) from Universitas Samudra specializing in Data Analytics, Machine Learning (SGD, LSTM, RAG), Business Intelligence dashboards, and software implementation.
+                <p className="text-xs text-muted-foreground max-w-lg leading-relaxed font-light">
+                  Informatics graduate (S.Kom, GPA 3.86 / 4.00) from Universitas Samudra (2022–2026) with hands-on experience in data analysis, business intelligence dashboards, predictive modeling (SGD, LSTM), and data-driven solution development.
                 </p>
               </div>
             </div>
@@ -68,15 +83,27 @@ export default function Resume() {
               </div>
               <div className="flex items-center justify-center sm:justify-end gap-2">
                 <Mail className="h-3.5 w-3.5 shrink-0" />
-                <a href="mailto:mhdfarid1811@gmail.com" className="hover:text-foreground">mhdfarid1811@gmail.com</a>
+                <a href="mailto:mhdfarid1811@gmail.com" className="hover:text-foreground">
+                  mhdfarid1811@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center justify-center sm:justify-end gap-2">
+                <Phone className="h-3.5 w-3.5 shrink-0" />
+                <a href="https://wa.me/6281362015571" className="hover:text-foreground">
+                  +62 813-6201-5571
+                </a>
               </div>
               <div className="flex items-center justify-center sm:justify-end gap-2">
                 <svg className="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" /><path d="M9 18c-4.51 2-5-2-7-2" /></svg>
-                <a href="https://github.com/farid1811" target="_blank" rel="noreferrer" className="hover:text-foreground">github.com/farid1811</a>
+                <a href="https://github.com/farid1811" target="_blank" rel="noreferrer" className="hover:text-foreground">
+                  github.com/farid1811
+                </a>
               </div>
               <div className="flex items-center justify-center sm:justify-end gap-2">
                 <svg className="h-3.5 w-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
-                <a href="https://www.linkedin.com/in/muhammad-farid-fitriansyah-53527a249" target="_blank" rel="noreferrer" className="hover:text-foreground">linkedin.com/in/muhammad-farid</a>
+                <a href="https://www.linkedin.com/in/muhammad-farid-fitriansyah-53527a249" target="_blank" rel="noreferrer" className="hover:text-foreground">
+                  linkedin.com/in/farid-fitriansyah
+                </a>
               </div>
             </div>
           </div>
@@ -95,15 +122,15 @@ export default function Resume() {
                   <div>
                     <h4 className="text-sm font-bold text-foreground">Universitas Samudra</h4>
                     <span className="block text-xs text-indigo-500 font-mono mt-0.5 font-semibold">
-                      Sarjana Ilmu Komputer (S.Kom)
+                      Informatics Graduate (S.Kom)
                     </span>
                     <span className="block text-[11px] text-muted-foreground font-mono mt-0.5">Program Studi Informatika</span>
                     <span className="inline-block text-[11px] font-mono text-emerald-600 dark:text-emerald-400 font-bold bg-emerald-500/10 px-2 py-0.5 rounded mt-1">
-                      IPK: 3.86 / 4.00
+                      GPA: 3.86 / 4.00
                     </span>
                     <span className="block text-[11px] text-muted-foreground font-mono mt-0.5">2022 — 2026</span>
                     <p className="text-[11px] text-muted-foreground mt-1 leading-tight">
-                      Thesis: <em>Analisis &amp; Prediksi Penjualan Menggunakan SGD pada Live Commerce</em> (Pembimbing: Dr. Ginda Maruli Andi Siregar).
+                      Thesis: <em>Analisis dan Prediksi Penjualan Menggunakan SGD pada Live Commerce</em> (Advisor: Dr. Ginda Maruli Andi Siregar).
                     </p>
                   </div>
                 </div>
@@ -113,7 +140,7 @@ export default function Resume() {
               <div className="space-y-3">
                 <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider flex items-center gap-1.5 border-b border-border pb-2">
                   <Award className="h-4 w-4 text-indigo-500" />
-                  Achievements
+                  Grants &amp; Awards
                 </h3>
                 <div className="space-y-2 text-xs text-muted-foreground leading-relaxed font-mono">
                   <div className="flex gap-1.5 items-start">
@@ -126,7 +153,7 @@ export default function Resume() {
                   </div>
                   <div className="flex gap-1.5 items-start">
                     <span className="text-indigo-500 shrink-0">▸</span>
-                    <span>Pemenang Unsam StartUp Competition — Unsam (Oct 2024)</span>
+                    <span>Pemenang Unsam StartUp Competition (USC) — Juara 1 (Oct 2024)</span>
                   </div>
                   <div className="flex gap-1.5 items-start">
                     <span className="text-indigo-500 shrink-0">▸</span>
@@ -139,7 +166,7 @@ export default function Resume() {
               <div className="space-y-3">
                 <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider flex items-center gap-1.5 border-b border-border pb-2">
                   <UserCheck className="h-4 w-4 text-indigo-500" />
-                  Certifications &amp; Training
+                  Training &amp; Credentials
                 </h3>
                 <div className="space-y-2.5 text-xs text-muted-foreground font-mono">
                   <div>
@@ -147,12 +174,12 @@ export default function Resume() {
                     <span>Karirnex by PT Ebiz Karisma (Nov 2024)</span>
                   </div>
                   <div>
-                    <strong className="text-foreground block">Workshop P2MW</strong>
-                    <span>Kiat Advisory (Nov 2024)</span>
-                  </div>
-                  <div>
                     <strong className="text-foreground block">MS Excel untuk Analisis Data</strong>
                     <span>Edspert (Apr – May 2024)</span>
+                  </div>
+                  <div>
+                    <strong className="text-foreground block">Workshop P2MW</strong>
+                    <span>Kiat Advisory (Nov 2024)</span>
                   </div>
                   <div>
                     <strong className="text-foreground block">Samsung Innovation Campus Batch 5</strong>
@@ -161,72 +188,51 @@ export default function Resume() {
                 </div>
               </div>
 
-              {/* Organizational Experience */}
-              <div className="space-y-3">
-                <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider flex items-center gap-1.5 border-b border-border pb-2">
-                  <Building className="h-4 w-4 text-indigo-500" />
-                  Organization
-                </h3>
-                <div className="space-y-2 text-xs text-muted-foreground font-mono">
-                  <div>
-                    <strong className="text-foreground block">Sekretaris Umum</strong>
-                    <span>Musyawarah Umum HIMATIF (Dec 2024)</span>
-                  </div>
-                  <div>
-                    <strong className="text-foreground block">Sekretaris Umum</strong>
-                    <span>PEMBATIK 2.0 (Oct 2024)</span>
-                  </div>
-                  <div>
-                    <strong className="text-foreground block">Anggota Divisi Medfo &amp; Teknologi</strong>
-                    <span>HIMATIF Unsam (2023 – 2024)</span>
-                  </div>
-                </div>
-              </div>
-
-              {/* Skills breakdown */}
+              {/* Technical Skills breakdown */}
               <div className="space-y-3">
                 <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider flex items-center gap-1.5 border-b border-border pb-2">
                   <Code className="h-4 w-4 text-indigo-500" />
-                  Technical Stack
+                  Technical Competencies
                 </h3>
                 <div className="space-y-3 font-mono text-xs">
                   <div>
-                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">1. Data Analytics</span>
+                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">
+                      Data Analytics
+                    </span>
                     <p className="text-muted-foreground leading-relaxed text-[11px]">
-                      Python, Pandas, NumPy, Data Cleansing, Preprocessing, EDA, Statistical Analysis
+                      Python, SQL, Microsoft Excel, Pandas, NumPy, Data Cleaning, Exploratory Data Analysis, Statistical Analysis
                     </p>
                   </div>
                   <div>
-                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">2. Business Intelligence</span>
+                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">
+                      Business Intelligence
+                    </span>
                     <p className="text-muted-foreground leading-relaxed text-[11px]">
-                      MS Excel (Expert), Plotly, Chart.js, Looker Studio, Interactive Dashboards
+                      Excel Dashboards, Streamlit, Data Visualization, Dashboard Development, Plotly, Chart.js
                     </p>
                   </div>
                   <div>
-                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">3. Database &amp; SQL</span>
+                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">
+                      Machine Learning
+                    </span>
                     <p className="text-muted-foreground leading-relaxed text-[11px]">
-                      SQL, MySQL, SQLite, BigQuery, Relational Modeling
+                      Scikit-learn, Regression, Time Series, LSTM, Model Evaluation (MAE, MAPE, R²), PyTorch
                     </p>
                   </div>
                   <div>
-                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">4. Machine Learning</span>
+                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">
+                      Supporting Technologies
+                    </span>
                     <p className="text-muted-foreground leading-relaxed text-[11px]">
-                      Scikit-Learn, PyTorch, Regression (SGD), Time Series (LSTM), RAG Engines
-                    </p>
-                  </div>
-                  <div>
-                    <span className="block font-bold text-foreground uppercase text-[10px] mb-1">5. Software Implementation</span>
-                    <p className="text-muted-foreground leading-relaxed text-[11px]">
-                      PHP, CodeIgniter 3, Laravel 10, Flask, Next.js, React, TypeScript, WordPress, REST API
+                      Flask, Laravel, MySQL, SQLite, WordPress, REST API
                     </p>
                   </div>
                 </div>
               </div>
             </div>
 
-            {/* Right Column: Work Experience, Freelance/Research, Entrepreneurial, Projects */}
+            {/* Right Column: Work Experience, Entrepreneurial, Projects */}
             <div className="space-y-8 md:col-span-2">
-              
               {/* SECTION A: PROFESSIONAL / WORK EXPERIENCE */}
               <div className="space-y-4">
                 <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider flex items-center gap-1.5 border-b border-border pb-2">
@@ -238,10 +244,16 @@ export default function Resume() {
                   <div className="space-y-1.5">
                     <div className="flex justify-between items-start">
                       <div>
-                        <h4 className="text-sm font-bold text-foreground">Host Live Commerce &amp; Koordinator Operasional</h4>
-                        <span className="text-xs font-semibold text-indigo-500 font-mono">Jagoan Grup</span>
+                        <h4 className="text-sm font-bold text-foreground">
+                          Host Live Commerce &amp; Koordinator Operasional
+                        </h4>
+                        <span className="text-xs font-semibold text-indigo-500 font-mono">
+                          Jagoan Grup
+                        </span>
                       </div>
-                      <span className="text-xs text-muted-foreground font-mono shrink-0 ml-2">Jan 2024 — Sep 2024</span>
+                      <span className="text-xs text-muted-foreground font-mono shrink-0 ml-2">
+                        Jan 2024 — Sep 2024
+                      </span>
                     </div>
                     <ul className="list-disc list-inside text-xs text-muted-foreground leading-relaxed space-y-1">
                       <li>Mengelola operasional kegiatan live commerce dan memastikan kelancaran promosi produk selama sesi berlangsung.</li>
@@ -253,21 +265,63 @@ export default function Resume() {
                 </div>
               </div>
 
-              {/* SECTION B: FREELANCE & RESEARCH EXPERIENCE */}
+              {/* SECTION B: ENTREPRENEURIAL EXPERIENCE */}
               <div className="space-y-4">
                 <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider flex items-center gap-1.5 border-b border-border pb-2">
-                  <Rocket className="h-4 w-4 text-indigo-500" />
-                  Freelance &amp; Research Experience
+                  <Building className="h-4 w-4 text-indigo-500" />
+                  Business &amp; Entrepreneurial Experience
                 </h3>
 
                 <div className="space-y-4">
                   <div className="space-y-1.5">
                     <div className="flex justify-between items-start">
                       <div>
-                        <h4 className="text-sm font-bold text-foreground">Asisten Riset &amp; Analisis Data</h4>
-                        <span className="text-xs font-semibold text-indigo-500 font-mono">Freelance / Research Projects</span>
+                        <h4 className="text-sm font-bold text-foreground">
+                          Business Owner (Owner)
+                        </h4>
+                        <span className="text-xs font-semibold text-indigo-500 font-mono">
+                          Kawan Ngampus
+                        </span>
                       </div>
-                      <span className="text-xs text-muted-foreground font-mono shrink-0 ml-2">2025 — 2026</span>
+                      <span className="text-xs text-muted-foreground font-mono shrink-0 ml-2">
+                        Oct 2024 — Mar 2026 (18 Months)
+                      </span>
+                    </div>
+                    <p className="text-xs text-foreground font-medium pt-0.5">
+                      &quot;Managed an affiliate-based digital business by using sales performance and audience behavior data to support promotional strategies.&quot;
+                    </p>
+                    <ul className="list-disc list-inside text-xs text-muted-foreground leading-relaxed space-y-1 pt-1">
+                      <li>Monitored engagement and sales conversions across digital promotional channels.</li>
+                      <li>Evaluated campaign performance and audience responses to refine content positioning.</li>
+                      <li>Developed promotional strategies based on market trends and performance metrics.</li>
+                      <li>Worked with partners and brands to coordinate affiliate campaigns.</li>
+                      <li>Managed day-to-day operational activities and customer engagement.</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              {/* SECTION C: FREELANCE & RESEARCH EXPERIENCE */}
+              <div className="space-y-4">
+                <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider flex items-center gap-1.5 border-b border-border pb-2">
+                  <Rocket className="h-4 w-4 text-indigo-500" />
+                  Research &amp; Data Analytics Experience
+                </h3>
+
+                <div className="space-y-4">
+                  <div className="space-y-1.5">
+                    <div className="flex justify-between items-start">
+                      <div>
+                        <h4 className="text-sm font-bold text-foreground">
+                          Asisten Riset &amp; Analisis Data
+                        </h4>
+                        <span className="text-xs font-semibold text-indigo-500 font-mono">
+                          Freelance &amp; Academic Research Projects
+                        </span>
+                      </div>
+                      <span className="text-xs text-muted-foreground font-mono shrink-0 ml-2">
+                        2025 — 2026
+                      </span>
                     </div>
                     <ul className="list-disc list-inside text-xs text-muted-foreground leading-relaxed space-y-1">
                       <li>Mendukung pengembangan proyek riset berfokus pada Machine Learning, Time Series Forecasting, dan Text Mining.</li>
@@ -279,32 +333,7 @@ export default function Resume() {
                 </div>
               </div>
 
-              {/* SECTION C: ENTREPRENEURIAL EXPERIENCE */}
-              <div className="space-y-4">
-                <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider flex items-center gap-1.5 border-b border-border pb-2">
-                  <Building className="h-4 w-4 text-indigo-500" />
-                  Entrepreneurial Experience
-                </h3>
-
-                <div className="space-y-4">
-                  <div className="space-y-1.5">
-                    <div className="flex justify-between items-start">
-                      <div>
-                        <h4 className="text-sm font-bold text-foreground">Pemilik Usaha (Owner)</h4>
-                        <span className="text-xs font-semibold text-indigo-500 font-mono">Kawan Ngampus</span>
-                      </div>
-                      <span className="text-xs text-muted-foreground font-mono shrink-0 ml-2">Oct 2024 — Mar 2026</span>
-                    </div>
-                    <ul className="list-disc list-inside text-xs text-muted-foreground leading-relaxed space-y-1">
-                      <li>Mengelola bisnis digital berbasis afiliasi dengan memanfaatkan analitik kinerja penjualan dan perilaku audiens.</li>
-                      <li>Memantau dan mengevaluasi data engagement dan konversi penjualan untuk mengoptimalkan kampanye digital.</li>
-                      <li>Mengembangkan strategi promosi berdasarkan tren pasar dan wawasan data untuk efektivitas pemasaran.</li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
-
-              {/* SECTION D: PROJECT EXPERIENCE */}
+              {/* SECTION D: VERIFIED PROJECT HIGHLIGHTS */}
               <div className="space-y-4">
                 <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider border-b border-border pb-2 flex items-center gap-1.5">
                   <BarChart3 className="h-4 w-4 text-indigo-500" />
@@ -316,7 +345,9 @@ export default function Resume() {
                     <span className="text-indigo-500 shrink-0 font-bold">01</span>
                     <div>
                       <strong className="text-foreground">Live Commerce Sales Analytics &amp; SGD Prediction</strong>
-                      <span className="text-muted-foreground"> — Model prediksi regresi berbasis Stochastic Gradient Descent (θ ≥ 0 constraint). R² = 51.26%, MAE = 9.68 items. Interaktif Streamlit simulation dashboard &amp; Flask BI application. (March 2026)</span>
+                      <span className="text-muted-foreground">
+                        {" "}— Formulasi regresi constrained Stochastic Gradient Descent (θ ≥ 0, bias ≥ 0). R² = 51.26%, MAE = 9.68 items. Streamlit simulation &amp; Flask MVC application. (March 2026)
+                      </span>
                     </div>
                   </div>
 
@@ -324,23 +355,39 @@ export default function Resume() {
                     <span className="text-indigo-500 shrink-0 font-bold">02</span>
                     <div>
                       <strong className="text-foreground">Foresight IQ — Time Series Commodity Forecasting</strong>
-                      <span className="text-muted-foreground"> — Analisis time-series dan prediksi permintaan komoditas menggunakan PyTorch LSTM. Test MAPE 17.29% – 19.94%. Clean Architecture Streamlit dashboard. (2025)</span>
+                      <span className="text-muted-foreground">
+                        {" "}— Prediksi permintaan komoditas menggunakan PyTorch LSTM pada 6 lini produk (Besi, Semen, Cat, Pipa, Seng, Triplek). Test MAPE = 17.29% (Triplek). Clean Architecture Streamlit dashboard. (2025)
+                      </span>
                     </div>
                   </div>
 
                   <div className="flex gap-2 items-start">
                     <span className="text-indigo-500 shrink-0 font-bold">03</span>
                     <div>
-                      <strong className="text-foreground">Dashboard Penjualan Sepeda &amp; US Superstore</strong>
-                      <span className="text-muted-foreground"> — Proyek Data Analyst menggunakan MS Excel &amp; Edspert. Analisis demografi pelanggan, kategori produk, dan visualisasi dashboard interaktif. (May – June 2024)</span>
+                      <strong className="text-foreground">Bike Sales Dashboard — Microsoft Excel Customer Analytics</strong>
+                      <span className="text-muted-foreground">
+                        {" "}— Dashboard interaktif Microsoft Excel menganalisis demografi pembeli sepeda. Mengidentifikasi pendapatan rata-rata pria pembeli ($92,857.14) vs wanita ($86,250.00), dominasi usia menengah, dan pengaruh jarak komuter dengan slicers dinamis. (June 2024)
+                      </span>
                     </div>
                   </div>
 
                   <div className="flex gap-2 items-start">
                     <span className="text-indigo-500 shrink-0 font-bold">04</span>
                     <div>
-                      <strong className="text-foreground">Smart CBT &amp; Web Platforms (Software Differentiator)</strong>
-                      <span className="text-muted-foreground"> — Aplikasi Laravel 10 anti-cheat CBT, CodeIgniter 3 Sistem Puskesmas, serta website Fakultas Hukum Unsam (1.000+ pengguna) dan P2MW. (2023 – 2024)</span>
+                      <strong className="text-foreground">US Superstore Sales Dashboard — Microsoft Excel Financial Analytics</strong>
+                      <span className="text-muted-foreground">
+                        {" "}— Dashboard eksekutif Microsoft Excel memproses transaksi ritel. Memvalidasi Total Revenue $169,213.71, Total Profit $1,158.26, kontributor utama California ($35,529.12), dan analisis margin drag akibat diskon tinggi. (May 2024)
+                      </span>
+                    </div>
+                  </div>
+
+                  <div className="flex gap-2 items-start">
+                    <span className="text-indigo-500 shrink-0 font-bold">05</span>
+                    <div>
+                      <strong className="text-foreground">SPKJS AI &amp; Full-Stack Systems (Supporting Solutions)</strong>
+                      <span className="text-muted-foreground">
+                        {" "}— Sistem Pendukung Keputusan TF-IDF Cosine + Gemini RAG (vektor cache &lt;50ms, 85% pytest), Laravel 10 Smart CBT anti-cheat, CodeIgniter 3 Sistem Puskesmas, dan Portal Fakultas Hukum Unsam (1.000+ pengguna).
+                      </span>
                     </div>
                   </div>
                 </div>

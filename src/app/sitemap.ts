@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { projectsData } from "@/lib/projectsData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://farid-portfolio.vercel.app";
+  const baseUrl = "https://farid-portfolio-woad.vercel.app";
 
   // Static routes
   const staticRoutes = ["", "/about", "/projects", "/research", "/resume", "/contact"].map((route) => ({

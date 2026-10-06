@@ -6,20 +6,20 @@ import { Mail, MessageSquare, ShieldCheck, HelpCircle, MapPin, ChevronDown, Chev
 
 const faqs = [
   {
-    q: "What is your academic and engineering background?",
-    a: "I am a Computer Science graduate (Sarjana Ilmu Komputer, GPA 3.86) from Universitas Samudra. My focus covers Machine Learning (SGD, LSTM), Data Analytics (MS Excel Expert, SQL, Looker Studio), BI Dashboards, and Clean Architecture web software development.",
+    q: "What is your primary professional focus and background?",
+    a: "I am a Data Analyst specializing in Business Intelligence, Machine Learning, and Predictive Analytics. I graduated with an Informatics degree (S.Kom, GPA 3.86 / 4.00) from Universitas Samudra, with hands-on experience in regression modeling, time-series forecasting, and Microsoft Excel dashboards.",
   },
   {
-    q: "How do you guarantee data integrity in machine learning workflows?",
-    a: "I enforce strict parameter scaling boundaries to prevent data leakage during train/test splits. MinMaxScaler parameters are calculated strictly on training sets and stored, ensuring zero future bias during production inference.",
+    q: "What tools and technologies do you use in analytics workflows?",
+    a: "My primary analytics stack includes Python (Pandas, NumPy, Scikit-learn, PyTorch), SQL (MySQL, SQLite), and Microsoft Excel (Pivot Tables, Advanced Slicers, Data Cleansing). For Business Intelligence and reporting, I work with Streamlit, Plotly, and Chart.js, with supporting web implementation skills in Flask and Laravel.",
   },
   {
-    q: "What roles and opportunities are you currently open to?",
-    a: "I am open to Software Engineering, Data Analyst, Machine Learning, and Business Intelligence roles. I welcome opportunities for full-time employment, research collaboration, or contract projects.",
+    q: "How do you approach business problems with data?",
+    a: "I follow an end-to-end analytical workflow: Understand the operational objective → Collect relevant data → Prepare and clean the dataset with strict data leakage safeguards → Explore trends and relationships → Apply statistical or machine learning models (e.g., constrained SGD, LSTM) when needed → Communicate clear findings via interactive dashboards and structured recommendations.",
   },
   {
-    q: "What languages and frameworks are you proficient in?",
-    a: "Python (PyTorch, Flask, Scikit-Learn, Pandas), PHP (CodeIgniter 3, Laravel 10), SQL, and TypeScript (Next.js, React, TailwindCSS). I also have extensive experience with WordPress/Elementor and Microsoft Excel for business analytics.",
+    q: "What types of roles or projects are you currently open to?",
+    a: "I am open to full-time Data Analyst, Business Intelligence, and Machine Learning roles, as well as data consulting and freelance analytics projects.",
   },
 ];
 
@@ -42,7 +42,7 @@ function FaqItem({ faq }: { faq: typeof faqs[0] }) {
             exit={{ opacity: 0, height: 0 }}
             className="overflow-hidden"
           >
-            <p className="pb-3 text-[11px] text-muted-foreground leading-relaxed">{faq.a}</p>
+            <p className="pb-3 text-[11px] text-muted-foreground leading-relaxed font-light">{faq.a}</p>
           </motion.div>
         )}
       </AnimatePresence>
@@ -69,13 +69,13 @@ export default function Contact() {
         className="text-center max-w-3xl mx-auto mb-16"
       >
         <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
-          Direct Communication
+          Direct Contact
         </span>
         <h1 className="mt-4 text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl">
-          Get in Touch
+          Let&apos;s Connect
         </h1>
         <p className="mt-4 text-lg text-muted-foreground font-light leading-relaxed">
-          Connect directly with Muhammad Farid Fitriansyah for career opportunities, engineering consultancies, or research inquiries.
+          Interested in data analytics, business intelligence, or data-driven projects? Let&apos;s connect.
         </p>
       </motion.div>
 
@@ -89,7 +89,7 @@ export default function Contact() {
         >
           <h3 className="text-lg font-bold text-foreground mb-6 flex items-center gap-2">
             <MessageSquare className="h-5 w-5 text-indigo-500" />
-            Send Direct Message
+            Send a Direct Message
           </h3>
 
           {submitted ? (
@@ -103,7 +103,7 @@ export default function Contact() {
               </div>
               <h4 className="text-base font-bold text-foreground">Message Dispatched</h4>
               <p className="text-sm text-muted-foreground max-w-xs mx-auto leading-relaxed">
-                Thank you. Your message has been logged. I will respond to your email address shortly.
+                Thank you. Your message has been received. I will respond to your email address shortly.
               </p>
               <button
                 onClick={() => setSubmitted(false)}
@@ -116,7 +116,9 @@ export default function Contact() {
             <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="space-y-1.5">
-                  <label htmlFor="contact-name" className="text-xs font-bold text-muted-foreground uppercase font-mono">Name *</label>
+                  <label htmlFor="contact-name" className="text-xs font-bold text-muted-foreground uppercase font-mono">
+                    Name *
+                  </label>
                   <input
                     id="contact-name"
                     type="text"
@@ -128,7 +130,9 @@ export default function Contact() {
                   />
                 </div>
                 <div className="space-y-1.5">
-                  <label htmlFor="contact-email" className="text-xs font-bold text-muted-foreground uppercase font-mono">Email Address *</label>
+                  <label htmlFor="contact-email" className="text-xs font-bold text-muted-foreground uppercase font-mono">
+                    Email Address *
+                  </label>
                   <input
                     id="contact-email"
                     type="email"
@@ -142,7 +146,9 @@ export default function Contact() {
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="contact-org" className="text-xs font-bold text-muted-foreground uppercase font-mono">Organization / Company</label>
+                <label htmlFor="contact-org" className="text-xs font-bold text-muted-foreground uppercase font-mono">
+                  Organization / Company
+                </label>
                 <input
                   id="contact-org"
                   type="text"
@@ -154,14 +160,16 @@ export default function Contact() {
               </div>
 
               <div className="space-y-1.5">
-                <label htmlFor="contact-msg" className="text-xs font-bold text-muted-foreground uppercase font-mono">Message *</label>
+                <label htmlFor="contact-msg" className="text-xs font-bold text-muted-foreground uppercase font-mono">
+                  Message *
+                </label>
                 <textarea
                   id="contact-msg"
                   required
                   rows={5}
                   value={formState.msg}
                   onChange={(e) => setFormState({ ...formState, msg: e.target.value })}
-                  placeholder="Share details regarding job opportunities, project collaboration, or inquiries..."
+                  placeholder="Share details regarding data opportunities, analytics projects, or inquiries..."
                   className="w-full px-3.5 py-2.5 rounded-xl border border-border bg-background text-sm focus:outline-none focus:ring-1 focus:ring-indigo-500/50 focus:border-indigo-500/50 transition-all resize-none"
                 />
               </div>
@@ -207,21 +215,14 @@ export default function Contact() {
                 <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500 group-hover:bg-indigo-500/20 transition-colors shrink-0">
                   <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
                 </div>
-                <span>linkedin.com/in/muhammad-farid</span>
-              </a>
-
-              <a href="https://www.instagram.com/mhd_farid_f" target="_blank" rel="noreferrer" className="flex items-center gap-3.5 hover:text-foreground transition-colors group">
-                <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500 group-hover:bg-indigo-500/20 transition-colors shrink-0">
-                  <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-                </div>
-                <span>instagram.com/mhd_farid_f</span>
+                <span>linkedin.com/in/farid-fitriansyah</span>
               </a>
 
               <a href="https://wa.me/6281362015571" target="_blank" rel="noreferrer" className="flex items-center gap-3.5 hover:text-foreground transition-colors group">
                 <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-emerald-500/10 text-emerald-500 group-hover:bg-emerald-500/20 transition-colors shrink-0">
                   <MessageCircle className="h-4 w-4" />
                 </div>
-                <span className="font-bold text-emerald-600 dark:text-emerald-400">Chat on WhatsApp</span>
+                <span className="font-bold text-emerald-600 dark:text-emerald-400">WhatsApp (+62 813-6201-5571)</span>
               </a>
 
               <div className="flex items-center gap-3.5 pt-1">
@@ -240,10 +241,12 @@ export default function Contact() {
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-500"></span>
               </span>
-              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase font-mono tracking-wider">Open for Hiring</span>
+              <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400 uppercase font-mono tracking-wider">
+                Open for Opportunities
+              </span>
             </div>
             <p className="text-xs text-muted-foreground leading-relaxed">
-              Available for full-time roles, research projects, and software engineering opportunities.
+              Available for Data Analyst, Business Intelligence, and Machine Learning positions and consulting projects.
             </p>
           </div>
 

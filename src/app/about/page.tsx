@@ -3,42 +3,61 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import {
   ShieldCheck,
-  Cpu,
-  Boxes,
-  Award,
-  GitBranch,
-  CheckSquare,
   GraduationCap,
   MapPin,
   Calendar,
   Code2,
-  Zap,
+  Award,
+  Briefcase,
+  Building,
   BarChart3,
   LineChart,
   PieChart,
   Workflow,
+  Sparkles,
+  ArrowRight,
+  ChevronRight,
+  TrendingUp,
 } from "lucide-react";
 
 export const metadata: Metadata = {
   title: "About",
   description:
-    "About Muhammad Farid Fitriansyah — Data Analyst (GPA 3.86) from Universitas Samudra specializing in Business Intelligence, Machine Learning, Data Visualization, and Predictive Analytics.",
+    "About Muhammad Farid Fitriansyah — Informatics Graduate (S.Kom, GPA 3.86) from Universitas Samudra specializing in Data Analytics, Business Intelligence, and Machine Learning.",
 };
 
-const skills = [
-  { name: "Data Analytics & Preprocessing (Python / Pandas)", level: 92, color: "#6366f1" },
-  { name: "Business Intelligence & MS Excel (Expert)", level: 94, color: "#10b981" },
-  { name: "SQL & Relational Databases (MySQL / SQLite)", level: 88, color: "#8b5cf6" },
-  { name: "Predictive Analytics (SGD & LSTM)", level: 86, color: "#f59e0b" },
-  { name: "RAG & Semantic Analytics (Gemini / Vector)", level: 85, color: "#f43f5e" },
-  { name: "Software Implementation (Flask / Laravel / Next.js)", level: 82, color: "#3b82f6" },
+const analyticalPillars = [
+  {
+    Icon: BarChart3,
+    color: "text-indigo-500",
+    title: "Data Analytics & Preprocessing",
+    desc: "Rigorous exploratory data analysis, data cleansing, outlier detection, and split boundary isolation to prevent data leakage.",
+  },
+  {
+    Icon: PieChart,
+    color: "text-emerald-500",
+    title: "Business Intelligence & Visualization",
+    desc: "Interactive dashboards in Microsoft Excel (Pivot Tables, Slicers), Streamlit, and Plotly that translate multidimensional metrics into clear executive insights.",
+  },
+  {
+    Icon: LineChart,
+    color: "text-violet-500",
+    title: "Predictive Analytics & Machine Learning",
+    desc: "Developing constrained non-negative SGD regression (θ ≥ 0, bias ≥ 0) and PyTorch LSTM recurrent time-series forecasting models.",
+  },
+  {
+    Icon: Workflow,
+    color: "text-indigo-500",
+    title: "Full-Lifecycle Solution Development",
+    desc: "Informatics capability to bridge static analysis and functional software, implementing models into usable tools (Flask, Laravel, SQLite/MySQL).",
+  },
 ];
 
 export default function About() {
   return (
     <div className="mx-auto max-w-5xl px-4 py-16 sm:px-6 lg:px-8">
       {/* HEADER */}
-      <div className="text-center max-w-3xl mx-auto mb-16 about-fade-in">
+      <div className="text-center max-w-3xl mx-auto mb-16">
         <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
           Professional Biography
         </span>
@@ -46,13 +65,13 @@ export default function About() {
           About Farid
         </h1>
         <p className="mt-4 text-lg text-muted-foreground font-light leading-relaxed">
-          Transforming raw data into actionable business intelligence, predictive models, and strategic decision support solutions.
+          Turning data into actionable insights through data preparation, analysis, visualization, predictive modeling, and data-driven solution development.
         </p>
       </div>
 
       {/* AVATAR + BIO */}
       <div className="grid gap-12 md:grid-cols-3 items-start mb-24">
-        {/* Left: Identity Card with PHOTO A */}
+        {/* Left: Identity Card with Portrait */}
         <div className="flex flex-col items-center gap-4">
           <div className="relative group w-full max-w-[280px]">
             <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-indigo-500/20 to-purple-500/20 blur-md opacity-70 group-hover:opacity-100 transition-opacity" />
@@ -61,7 +80,7 @@ export default function About() {
               <div className="relative aspect-[3/4] w-full rounded-xl overflow-hidden bg-secondary/30">
                 <Image
                   src="/images/farid-about-suit.webp"
-                  alt="Muhammad Farid Fitriansyah"
+                  alt="Muhammad Farid Fitriansyah — Data Analyst"
                   width={600}
                   height={900}
                   className="h-full w-full object-cover object-top transition-transform duration-500 group-hover:scale-[1.03]"
@@ -88,7 +107,7 @@ export default function About() {
               </div>
               <div className="flex items-center gap-2">
                 <Calendar className="h-3.5 w-3.5 shrink-0 text-indigo-400" aria-hidden="true" />
-                <span>Class of 2026 (S.Kom)</span>
+                <span>Informatics Graduate (S.Kom, 2022–2026)</span>
               </div>
               <div className="flex items-center gap-2">
                 <Code2 className="h-3.5 w-3.5 shrink-0 text-indigo-400" aria-hidden="true" />
@@ -114,35 +133,31 @@ export default function About() {
 
         {/* Right: Narrative Bio */}
         <div className="md:col-span-2 space-y-6">
-          <div className="space-y-5 text-muted-foreground leading-relaxed text-base">
+          <div className="space-y-4 text-muted-foreground leading-relaxed text-base font-light">
             <p>
-              I am <strong className="text-foreground">Muhammad Farid Fitriansyah</strong> — a <strong className="text-foreground">Data Analyst</strong> specializing in Business Intelligence, Machine Learning, Data Visualization, and Predictive Analytics. I hold a Computer Science degree (Sarjana Ilmu Komputer, GPA 3.86 / 4.00) from <strong className="text-foreground">Universitas Samudra</strong>.
+              I am <strong className="text-foreground font-semibold">Muhammad Farid Fitriansyah</strong> — a <strong className="text-foreground font-semibold">Data Analyst</strong> specializing in Business Intelligence, Machine Learning, and Predictive Analytics. I graduated with a Bachelor&apos;s degree in Informatics (<strong className="text-foreground font-semibold">S.Kom, GPA 3.86 / 4.00</strong>) from <strong className="text-foreground font-semibold">Universitas Samudra</strong> (2022–2026).
             </p>
             <p>
-              My analytical approach focuses on the full data lifecycle: <strong className="text-foreground font-semibold">DATA → ANALYSIS → INSIGHT → PREDICTION → DECISION</strong>. From developing constrained Stochastic Gradient Descent (SGD) regression models for live commerce sales to training PyTorch LSTM time-series forecasting engines for commodity supply chains, I turn raw datasets into clear operational intelligence.
+              My professional identity is rooted in turning data into actionable insights: <strong className="text-foreground font-semibold">I understand business problems, work with data, prepare and analyze it, communicate insights through intuitive visualizations, build predictive models when appropriate, and translate findings into usable solutions.</strong>
             </p>
             <p>
-              What differentiates my work is my Informatics background: beyond generating static reports, I have the technical capability to build, deploy, and maintain analytical applications (Flask, Streamlit, Laravel) that bring models and dashboards directly to end-users.
+              My work spans from commercial sales telemetry in live commerce to industrial commodity time-series forecasting and multi-dimensional Microsoft Excel dashboards. Software engineering and web technologies remain valuable supporting capabilities, enabling me to deploy interactive analytical systems directly for stakeholders.
             </p>
           </div>
 
-          {/* Core Technical Pillars */}
+          {/* Core Analytical Pillars */}
           <div className="space-y-3 rounded-2xl border border-border bg-card p-6 shadow-sm">
-            <h3 className="text-sm font-bold text-foreground font-mono uppercase tracking-wider border-b border-border pb-3">
-              Core Analytical Pillars
+            <h3 className="text-xs font-bold text-foreground font-mono uppercase tracking-wider border-b border-border pb-3">
+              Analytical Capabilities &amp; Focus
             </h3>
-            <ul className="space-y-3 pt-2">
-              {[
-                { Icon: BarChart3, color: "text-indigo-500", title: "Data Analytics & Preprocessing", desc: "Data cleansing, exploratory analysis, handling missing values, statistical distributions, and MinMaxScaler split lockout guards." },
-                { Icon: PieChart, color: "text-emerald-500", title: "Business Intelligence & Visualization", desc: "MS Excel (Expert level), interactive Plotly 3D mesh charts, Streamlit dashboards, and executive performance metrics." },
-                { Icon: LineChart, color: "text-violet-500", title: "Predictive Analytics & Machine Learning", desc: "Constrained SGD non-negative regression (θ ≥ 0), PyTorch LSTM demand forecasting, and TF-IDF Cosine similarity scoring." },
-                { Icon: Workflow, color: "text-indigo-500", title: "Software Implementation Differentiator", desc: "Implementing analytical workflows directly into web platforms (Flask, Laravel 10, Next.js, SQLite/MySQL) for real-world usage." },
-              ].map(({ Icon, color, title, desc }) => (
-                <li key={title} className="flex gap-2.5 items-start text-sm text-muted-foreground">
+            <ul className="space-y-3.5 pt-2">
+              {analyticalPillars.map(({ Icon, color, title, desc }) => (
+                <li key={title} className="flex gap-3 items-start text-sm text-muted-foreground">
                   <Icon className={`h-4 w-4 ${color} shrink-0 mt-0.5`} aria-hidden="true" />
-                  <span>
-                    <strong className="text-foreground">{title}:</strong> {desc}
-                  </span>
+                  <div>
+                    <strong className="text-foreground block text-xs font-mono uppercase">{title}</strong>
+                    <span className="text-xs leading-relaxed text-muted-foreground">{desc}</span>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -150,42 +165,270 @@ export default function About() {
         </div>
       </div>
 
-      {/* SKILLS PROFICIENCY */}
-      <div className="mb-24">
-        <h2 className="text-2xl font-bold text-foreground mb-2 text-center">Technical Competencies</h2>
-        <p className="text-sm text-muted-foreground text-center mb-10">
-          Core analytical skills demonstrated across thesis research, data analyst projects, and software applications.
-        </p>
-        <div className="grid gap-5 md:grid-cols-2">
-          {skills.map((skill, idx) => (
-            <div key={skill.name} className="space-y-1.5">
-              <div className="flex justify-between text-xs font-mono">
-                <span className="text-foreground font-medium">{skill.name}</span>
-                <span className="text-muted-foreground">{skill.level}%</span>
+      {/* AUTHENTIC EVIDENCE & DOCUMENTATION */}
+      <section className="mb-24" aria-label="Authentic documentation">
+        <div className="text-center max-w-2xl mx-auto mb-12">
+          <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
+            Authentic Evidence
+          </span>
+          <h2 className="mt-2 text-2xl sm:text-3xl font-bold tracking-tight text-foreground">
+            Academic &amp; Professional Milestones
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground font-light">
+            Verified local documentation providing real context for education, business operations, and analytics experience.
+          </p>
+        </div>
+
+        <div className="grid gap-6 md:grid-cols-2">
+          {/* Item 1: Graduation / Education */}
+          <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm flex flex-col justify-between">
+            <div className="relative aspect-[4/3] w-full bg-slate-950 overflow-hidden">
+              <Image
+                src="/images/about/foto-wisuda.jpeg"
+                alt="Muhammad Farid Fitriansyah — Wisuda Sarjana Komputer Universitas Samudra"
+                fill
+                sizes="(max-width: 768px) 100vw, 500px"
+                className="object-cover object-center"
+              />
+            </div>
+            <div className="p-5 space-y-2">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-indigo-500/10 text-indigo-500 px-2.5 py-0.5 rounded-full">
+                  Education &amp; Graduation
+                </span>
+                <span className="text-[10px] font-mono text-muted-foreground">Class of 2026</span>
               </div>
-              <div className="h-2 w-full rounded-full bg-secondary overflow-hidden">
-                <div
-                  className="h-full rounded-full skill-bar-fill"
-                  style={
-                    {
-                      "--target-width": `${skill.level}%`,
-                      backgroundColor: skill.color,
-                      animationDelay: `${idx * 0.1}s`,
-                    } as React.CSSProperties
-                  }
-                />
+              <h3 className="text-base font-bold text-foreground">
+                Informatics Graduate (S.Kom) — Universitas Samudra
+              </h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Graduated with GPA 3.86 / 4.00 from Fakultas Sains dan Teknologi, Universitas Samudra. Completed undergraduate thesis in live commerce sales analytics and constrained regression modeling under Dr. Ginda Maruli Andi Siregar.
+              </p>
+            </div>
+          </div>
+
+          {/* Item 2: Professional Experience Live Commerce */}
+          <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm flex flex-col justify-between">
+            <div className="relative aspect-[4/3] w-full bg-slate-950 overflow-hidden">
+              <Image
+                src="/images/about/kerja-1.jpeg"
+                alt="Live Commerce Host and Operational Sales Analytics Telemetry"
+                fill
+                sizes="(max-width: 768px) 100vw, 500px"
+                className="object-cover object-center"
+              />
+            </div>
+            <div className="p-5 space-y-2">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-2.5 py-0.5 rounded-full">
+                  Professional Experience
+                </span>
+                <span className="text-[10px] font-mono text-muted-foreground">Jan – Sep 2024</span>
+              </div>
+              <h3 className="text-base font-bold text-foreground">
+                Live Commerce Host &amp; Operational Coordination
+              </h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Hands-on monitoring of real-time streaming telemetry at Jagoan Grup (tracking Rp 54M+ and Rp 19M+ broadcast sessions, viewer retention, and cart conversions). This operational foundation directly inspired the research problem addressed in Live Commerce Intelligence.
+              </p>
+            </div>
+          </div>
+
+          {/* Item 3: Entrepreneurship Achievement (USC 1) */}
+          <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm flex flex-col justify-between">
+            <div className="relative aspect-[4/3] w-full bg-slate-950 overflow-hidden">
+              <Image
+                src="/images/about/usc-1.jpeg"
+                alt="Unsam StartUp Competition 2024 Juara 1"
+                fill
+                sizes="(max-width: 768px) 100vw, 500px"
+                className="object-cover object-top"
+              />
+            </div>
+            <div className="p-5 space-y-2">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-violet-500/10 text-violet-500 px-2.5 py-0.5 rounded-full">
+                  Venture Achievement
+                </span>
+                <span className="text-[10px] font-mono text-muted-foreground">October 2024</span>
+              </div>
+              <h3 className="text-base font-bold text-foreground">
+                1st Place Winner — Unsam StartUp Competition (USC)
+              </h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Awarded 1st place with institutional incubation funding (Rp 6.000.000), recognized for commercial feasibility and data-informed business strategy.
+              </p>
+            </div>
+          </div>
+
+          {/* Item 4: Business Innovation Workshop (P2MW BMC) */}
+          <div className="rounded-2xl border border-border bg-card overflow-hidden shadow-sm flex flex-col justify-between">
+            <div className="relative aspect-[4/3] w-full bg-slate-950 overflow-hidden">
+              <Image
+                src="/images/about/workshop-p2mw-bmc.jpeg"
+                alt="Business Model Canvas Workshop P2MW"
+                fill
+                sizes="(max-width: 768px) 100vw, 500px"
+                className="object-cover object-center"
+              />
+            </div>
+            <div className="p-5 space-y-2">
+              <div className="flex items-center justify-between gap-2">
+                <span className="text-[10px] font-mono font-bold uppercase tracking-wider bg-amber-500/10 text-amber-600 dark:text-amber-400 px-2.5 py-0.5 rounded-full">
+                  Business &amp; Innovation
+                </span>
+                <span className="text-[10px] font-mono text-muted-foreground">2023 &amp; 2024</span>
+              </div>
+              <h3 className="text-base font-bold text-foreground">
+                P2MW Business Model Canvas Workshop
+              </h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">
+                Formulating market validation, customer segment channels, and revenue stream modeling during Ministry/Belmawa funded student entrepreneurship development programs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* PROFESSIONAL & BUSINESS EXPERIENCE */}
+      <section className="mb-24" aria-label="Experience">
+        <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
+          Work &amp; Business Experience
+        </h2>
+
+        <div className="space-y-8">
+          {/* Experience 1: Kawan Ngampus */}
+          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-border pb-4">
+              <div>
+                <span className="text-xs font-mono font-bold text-indigo-500 uppercase">
+                  Digital Venture Operations
+                </span>
+                <h3 className="text-xl font-bold text-foreground mt-0.5">
+                  Business Owner — Kawan Ngampus
+                </h3>
+                <span className="text-xs text-muted-foreground font-mono">
+                  Affiliate Digital Business &amp; Operations
+                </span>
+              </div>
+              <div className="sm:text-right">
+                <span className="inline-block text-xs font-mono font-semibold bg-indigo-500/10 text-indigo-500 px-3 py-1 rounded-full border border-indigo-500/20">
+                  October 2024 – March 2026 (18 Months)
+                </span>
               </div>
             </div>
-          ))}
-        </div>
-      </div>
 
-      {/* EDUCATION */}
-      <div className="mb-24">
-        <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Education &amp; Academic Background</h2>
-        <div className="relative border-l-2 border-border ml-6 space-y-8 pl-8">
+            <p className="mt-4 text-sm text-foreground leading-relaxed">
+              &quot;Managed an affiliate-based digital business by using sales performance and audience behavior data to support promotional strategies.&quot;
+            </p>
+
+            <div className="mt-4">
+              <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-wider mb-2">
+                Core Operational Responsibilities:
+              </h4>
+              <ul className="grid gap-2 sm:grid-cols-2 text-xs text-muted-foreground">
+                <li className="flex gap-2 items-start">
+                  <span className="text-indigo-500 font-bold shrink-0">▸</span>
+                  <span>Monitored engagement and sales conversions</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="text-indigo-500 font-bold shrink-0">▸</span>
+                  <span>Evaluated campaign performance across promotion channels</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="text-indigo-500 font-bold shrink-0">▸</span>
+                  <span>Developed promotional strategies based on market trends</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="text-indigo-500 font-bold shrink-0">▸</span>
+                  <span>Worked with partners and brands to coordinate offerings</span>
+                </li>
+                <li className="flex gap-2 items-start sm:col-span-2">
+                  <span className="text-indigo-500 font-bold shrink-0">▸</span>
+                  <span>Managed day-to-day operational activities and customer interactions</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          {/* Experience 2: Live Commerce at Jagoan Grup */}
+          <div className="rounded-2xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+            <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-2 border-b border-border pb-4">
+              <div>
+                <span className="text-xs font-mono font-bold text-emerald-500 uppercase">
+                  Professional Operations
+                </span>
+                <h3 className="text-xl font-bold text-foreground mt-0.5">
+                  Live Commerce Host &amp; Operational Coordinator
+                </h3>
+                <span className="text-xs text-muted-foreground font-mono">
+                  Jagoan Grup
+                </span>
+              </div>
+              <div className="sm:text-right">
+                <span className="inline-block text-xs font-mono font-semibold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/20">
+                  January 2024 – September 2024
+                </span>
+              </div>
+            </div>
+
+            <p className="mt-4 text-sm text-muted-foreground leading-relaxed">
+              Managed live streaming operational sessions and promotional activities, monitoring audience interaction, engagement dynamics, and sales velocity in real time.
+            </p>
+
+            <div className="mt-4">
+              <h4 className="text-xs font-mono font-bold text-muted-foreground uppercase tracking-wider mb-2">
+                Operational Activities:
+              </h4>
+              <ul className="grid gap-2 sm:grid-cols-2 text-xs text-muted-foreground">
+                <li className="flex gap-2 items-start">
+                  <span className="text-emerald-500 font-bold shrink-0">▸</span>
+                  <span>Managed live streaming operations and executed promotional campaigns</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="text-emerald-500 font-bold shrink-0">▸</span>
+                  <span>Analyzed broadcast performance, engagement, and sales trends</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="text-emerald-500 font-bold shrink-0">▸</span>
+                  <span>Coordinated with the team on broadcast schedules and promotional strategies</span>
+                </li>
+                <li className="flex gap-2 items-start">
+                  <span className="text-emerald-500 font-bold shrink-0">▸</span>
+                  <span>Enhanced audience engagement through effective product communication</span>
+                </li>
+              </ul>
+            </div>
+
+            {/* Contextual Pipeline Banner */}
+            <div className="mt-6 rounded-xl border border-border bg-background/60 p-4">
+              <span className="block text-[10px] font-mono uppercase tracking-wider text-muted-foreground font-bold mb-2">
+                Conceptual Pipeline &amp; Evolution
+              </span>
+              <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-muted-foreground">
+                <span className="text-foreground font-semibold">Real Business Context</span>
+                <span>→</span>
+                <span className="text-foreground font-semibold">Live Commerce Experience</span>
+                <span>→</span>
+                <span className="text-indigo-500 font-semibold">Academic Analytics Research</span>
+                <span>→</span>
+                <span className="text-indigo-500 font-semibold">Predictive Model (SGD)</span>
+                <span>→</span>
+                <span className="text-foreground font-semibold">Interactive Data Solution</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* EDUCATION SECTION */}
+      <section className="mb-24" aria-label="Education">
+        <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
+          Education &amp; Academic Credentials
+        </h2>
+        <div className="relative border-l-2 border-border ml-4 sm:ml-6 space-y-8 pl-6 sm:pl-8">
           <div className="relative">
-            <div className="absolute -left-[2.75rem] top-1 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-500">
+            <div className="absolute -left-[2.15rem] sm:-left-[2.75rem] top-1 flex h-8 w-8 items-center justify-center rounded-full bg-indigo-500/10 border border-indigo-500/20 text-indigo-500">
               <GraduationCap className="h-4 w-4" aria-hidden="true" />
             </div>
             <div className="rounded-xl border border-border bg-card p-6 shadow-sm">
@@ -193,13 +436,13 @@ export default function About() {
                 <div>
                   <h3 className="font-bold text-foreground text-lg">Universitas Samudra</h3>
                   <p className="text-sm text-indigo-500 font-mono font-semibold mt-0.5">
-                    Sarjana Ilmu Komputer (S.Kom) — Program Studi Informatika
+                    Informatics Graduate (S.Kom) — Program Studi Informatika
                   </p>
                   <p className="text-xs text-muted-foreground font-mono mt-0.5">Aceh, Indonesia</p>
                 </div>
                 <div className="text-right">
                   <span className="inline-block text-xs font-mono font-bold bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 px-3 py-1 rounded-full border border-emerald-500/20">
-                    IPK / GPA: 3.86 / 4.00
+                    GPA: 3.86 / 4.00
                   </span>
                   <span className="block text-xs text-muted-foreground font-mono mt-1">2022 — 2026</span>
                 </div>
@@ -210,10 +453,10 @@ export default function About() {
                   <strong className="text-foreground">Undergraduate Thesis:</strong> <em>Analisis dan Prediksi Penjualan Menggunakan Stochastic Gradient Descent (SGD) pada Live Commerce</em>
                 </p>
                 <p>
-                  <strong className="text-foreground">Thesis Advisor / Dosen Pembimbing:</strong> Dr. Ginda Maruli Andi Siregar
+                  <strong className="text-foreground">Thesis Advisor:</strong> Dr. Ginda Maruli Andi Siregar
                 </p>
                 <p>
-                  <strong className="text-foreground">Focus Areas:</strong> Data Analytics, Machine Learning, Predictive Modeling, &amp; Business Intelligence Systems.
+                  <strong className="text-foreground">Academic Focus:</strong> Data Analytics, Machine Learning, Predictive Modeling, &amp; Business Intelligence Systems.
                 </p>
               </div>
 
@@ -238,36 +481,38 @@ export default function About() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
-      {/* VERIFIED ACHIEVEMENTS */}
-      <div className="mb-24">
-        <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Grants &amp; Achievements</h2>
+      {/* VERIFIED ACHIEVEMENTS & GRANTS */}
+      <section className="mb-16" aria-label="Achievements">
+        <h2 className="text-2xl font-bold text-foreground mb-8 text-center">
+          Grants &amp; Achievements
+        </h2>
         <div className="grid gap-4 md:grid-cols-2">
           {[
             {
               title: "Penerima Hibah Riset Mahasiswa Internal",
               org: "Universitas Samudra",
               year: "2025",
-              desc: "Awarded internal student research grant funding for AI & predictive analytics modeling.",
+              desc: "Awarded internal student research grant funding for AI and commodity time-series forecasting research.",
             },
             {
               title: "Finalis Kompetisi Bisnis Regional II",
               org: "LPDP",
               year: "Februari 2025",
-              desc: "Selected as regional finalist in LPDP Business Competition II.",
+              desc: "Selected as regional finalist in LPDP Business Competition II based on commercial venture feasibility.",
             },
             {
               title: "Pemenang Unsam StartUp Competition (USC)",
               org: "Universitas Samudra",
               year: "Oktober 2024",
-              desc: "1st Place Winner in university-wide startup business competition.",
+              desc: "1st Place Winner in university-wide startup competition with institutional incubation funding (Rp 6.000.000).",
             },
             {
-              title: "Penerima Pendanaan P2MW (Program Pengembangan Kewirausahaan Mahasiswa)",
+              title: "Penerima Pendanaan P2MW",
               org: "Universitas Samudra / Belmawa",
               year: "2023 & 2024",
-              desc: "Two-time recipient of student entrepreneurship funding for digital business initiatives.",
+              desc: "Two-time recipient of student entrepreneurship development funding for digital business ventures.",
             },
           ].map((item) => (
             <div key={item.title} className="rounded-xl border border-border bg-card p-5 shadow-sm flex gap-4">
@@ -285,30 +530,7 @@ export default function About() {
             </div>
           ))}
         </div>
-      </div>
-
-      {/* ANALYTICAL PRINCIPLES */}
-      <div>
-        <h2 className="text-2xl font-bold text-foreground mb-8 text-center">Analytical Principles</h2>
-        <div className="grid gap-6 md:grid-cols-2">
-          {[
-            { Icon: BarChart3, color: "bg-indigo-500/10 text-indigo-500", title: "Rigor in Data Cleansing", desc: "Ensuring zero parameter leakage between training and testing sets, validating model accuracy using MAE, RMSE, MAPE, and R²." },
-            { Icon: LineChart, color: "bg-emerald-500/10 text-emerald-500", title: "Business Realism in Modeling", desc: "Enforcing realistic physical constraints in regression algorithms (θ ≥ 0) so model outputs produce actionable commercial rules." },
-            { Icon: PieChart, color: "bg-violet-500/10 text-violet-500", title: "Clear Data Communication", desc: "Translating complex statistical metrics into intuitive visual dashboards (MS Excel, Plotly, Streamlit) for non-technical stakeholders." },
-            { Icon: Workflow, color: "bg-indigo-500/10 text-indigo-500", title: "Technical Deployment Capability", desc: "Building scalable web interfaces (Flask, Laravel, SQLite) to allow end-users to run analytical models directly in real-time." },
-          ].map(({ Icon, color, title, desc }) => (
-            <div key={title} className="flex gap-4 rounded-xl border border-border bg-card p-6 shadow-sm hover:shadow-md transition-shadow duration-200">
-              <div className={`flex h-10 w-10 items-center justify-center rounded-lg ${color} shrink-0`}>
-                <Icon className="h-5 w-5" aria-hidden="true" />
-              </div>
-              <div>
-                <h3 className="font-bold text-foreground">{title}</h3>
-                <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
+      </section>
     </div>
   );
 }

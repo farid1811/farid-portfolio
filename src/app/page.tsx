@@ -8,70 +8,114 @@ import { motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
   FileText,
-  Layers,
-  CheckCircle2,
   Sparkles,
   Database,
-  ArrowUpRight,
-  TrendingUp,
-  Fingerprint,
   GraduationCap,
   ShieldCheck,
   LineChart,
   PieChart,
-  Cpu,
+  BarChart3,
   Workflow,
   Search,
-  BarChart3,
-  Lightbulb,
+  CheckCircle2,
 } from "lucide-react";
 import { projectsData } from "@/lib/projectsData";
 
-// Dynamically import ProjectCard — loaded on scroll to optimize bundle
+// Dynamically import ProjectCard to optimize bundle performance
 const ProjectCard = dynamic(() => import("@/components/ProjectCard"), {
   loading: () => (
-    <div className="h-[420px] rounded-2xl border border-border bg-card animate-pulse" aria-hidden="true" />
+    <div className="h-[460px] rounded-2xl border border-border bg-card animate-pulse" aria-hidden="true" />
   ),
   ssr: false,
 });
 
 const skillsData = [
   {
-    category: "1. Data Analytics",
-    items: ["Python", "Pandas", "NumPy", "Data Cleansing", "Data Preprocessing", "Exploratory Data Analysis", "Statistical Analysis"],
+    category: "DATA ANALYTICS",
+    items: [
+      "Python",
+      "SQL",
+      "Microsoft Excel",
+      "Pandas",
+      "NumPy",
+      "Data Cleaning",
+      "Exploratory Data Analysis",
+      "Statistical Analysis",
+    ],
   },
   {
-    category: "2. Business Intelligence & Viz",
-    items: ["MS Excel (Expert)", "Plotly", "Chart.js", "Looker Studio", "Interactive Dashboards", "Data Storytelling"],
+    category: "BUSINESS INTELLIGENCE",
+    items: [
+      "Excel Dashboard",
+      "Streamlit",
+      "Data Visualization",
+      "Dashboard Development",
+      "Plotly",
+      "Chart.js",
+    ],
   },
   {
-    category: "3. Database & Management",
-    items: ["SQL", "MySQL", "SQLite", "Google BigQuery", "Data Pipeline", "Relational Modeling"],
+    category: "MACHINE LEARNING",
+    items: [
+      "Scikit-learn",
+      "Regression",
+      "Time Series",
+      "LSTM",
+      "Model Evaluation",
+      "PyTorch",
+    ],
   },
   {
-    category: "4. Machine Learning & Predictive",
-    items: ["Scikit-Learn", "PyTorch", "Regression (SGD)", "Time Series (LSTM)", "RAG Systems", "Model Evaluation (MAE/MAPE/R²)"],
-  },
-  {
-    category: "5. Software Development (Differentiator)",
-    items: ["PHP (CodeIgniter / Laravel)", "Flask", "Next.js", "React", "TypeScript", "TailwindCSS", "REST API", "WordPress"],
+    category: "SUPPORTING TECHNOLOGIES",
+    items: [
+      "Flask",
+      "Laravel",
+      "MySQL",
+      "SQLite",
+      "WordPress",
+      "REST API",
+    ],
   },
 ];
 
 const metricsData = [
-  { value: "3.86 / 4.00", label: "Universitas Samudra GPA" },
-  { value: "51.26% R²", label: "SGD Sales Prediction Fit" },
-  { value: "< 50ms", label: "Local Vector Search Cache" },
-  { value: "4 Projects", label: "Analytics & Systems Showcase" },
+  { value: "3.86 / 4.00", label: "GPA" },
+  { value: "4+", label: "Data & Analytics Projects" },
+  { value: "18 Months", label: "Business Operations" },
+  { value: "51.26%", label: "Best Model R²" },
 ];
 
 const analyticalWorkflow = [
-  { step: "01", title: "Understand Problem", desc: "Define operational challenges, business targets, and key analytical questions." },
-  { step: "02", title: "Collect & Prepare Data", desc: "Clean raw data, handle outliers, and lock scaling split boundaries to guard against data leakage." },
-  { step: "03", title: "Explore & Analyze", desc: "Uncover patterns, demographic distributions, and statistical relationships across variables." },
-  { step: "04", title: "Visualize & Communicate", desc: "Build interactive dashboards in MS Excel, Streamlit, and Plotly to present actionable insights." },
-  { step: "05", title: "Model & Predict", desc: "Train machine learning models (non-negative SGD, LSTM) to forecast future trends accurately." },
-  { step: "06", title: "Support Decisions", desc: "Deliver intuitive applications and PDF reports that empower strategic business planning." },
+  {
+    step: "01",
+    title: "UNDERSTAND",
+    desc: "Understand the business problem and objectives.",
+  },
+  {
+    step: "02",
+    title: "COLLECT",
+    desc: "Gather relevant data and define data sources.",
+  },
+  {
+    step: "03",
+    title: "PREPARE",
+    desc: "Clean, transform, and validate the data.",
+  },
+  {
+    step: "04",
+    title: "ANALYZE",
+    desc: "Explore patterns, trends, and relationships.",
+  },
+  {
+    step: "05",
+    title: "MODEL",
+    desc: "Apply statistical or machine learning methods when needed.",
+  },
+  {
+    step: "06",
+    title: "COMMUNICATE",
+    desc: "Turn findings into dashboards, insights, and recommendations.",
+  },
 ];
 
 const philosophyCards = [
@@ -83,17 +127,17 @@ const philosophyCards = [
     footer: "Data Cleansing • Scaling Guard • Validation",
   },
   {
-    Icon: TrendingUp,
-    color: "bg-violet-500/10 text-violet-500",
+    Icon: BarChart3,
+    color: "bg-emerald-500/10 text-emerald-500",
     title: "Realistic Business Modeling",
-    desc: "Developing custom non-negative Stochastic Gradient Descent (θ ≥ 0) solvers to prevent unrealistic negative driver coefficients in commercial sales models.",
-    footer: "Constrained SGD • R² Accuracy • Business Logic",
+    desc: "Developing custom non-negative Stochastic Gradient Descent (θ ≥ 0, bias ≥ 0) solvers to prevent unrealistic negative driver coefficients in commercial sales models.",
+    footer: "Constrained SGD • R² 51.26% • Commercial Logic",
   },
   {
     Icon: PieChart,
-    color: "bg-emerald-500/10 text-emerald-500",
+    color: "bg-violet-500/10 text-violet-500",
     title: "Interactive Visualization & BI",
-    desc: "Designing interactive dashboards with 3D regression surface meshes, Plotly range sliders, and dynamic filtering to communicate insights clearly.",
+    desc: "Designing interactive dashboards in Microsoft Excel, Streamlit, and Plotly to translate multi-variable patterns into actionable operational decisions.",
     footer: "MS Excel • Streamlit • Plotly.js • BI Dashboards",
   },
 ];
@@ -154,9 +198,11 @@ export default function Home() {
     },
   };
 
+  // Top 4 Featured Tier 1 Projects
+  const featuredProjects = projectsData.filter((p) => p.tier === 1);
+
   return (
     <div className="flex flex-col items-center justify-center w-full overflow-hidden">
-
       {/* HERO SECTION */}
       <section className="relative w-full max-w-7xl px-4 pt-12 pb-16 sm:px-6 lg:px-8 lg:pt-20 lg:pb-24">
         <div
@@ -169,41 +215,40 @@ export default function Home() {
         />
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-          
-          {/* Left Column: Text & CTAs (7 cols) */}
+          {/* Left Column: Positioning, Headline & CTAs (7 cols) */}
           <motion.div
             variants={containerVariants}
             initial="hidden"
             animate="visible"
             className="lg:col-span-7 space-y-6 text-center lg:text-left"
           >
-            {/* Eyebrow badge */}
+            {/* Primary Positioning Label */}
             <motion.div
               variants={itemVariants}
               className="inline-flex items-center gap-2 rounded-full border border-indigo-500/20 bg-indigo-500/5 px-4 py-1.5 text-xs text-indigo-600 dark:text-indigo-400 font-semibold tracking-wide uppercase font-mono"
             >
               <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
-              DATA ANALYST · BUSINESS INTELLIGENCE · MACHINE LEARNING
+              Data Analyst | Business Intelligence | Machine Learning
             </motion.div>
 
-            {/* Main Title */}
+            {/* Approved Headline */}
             <motion.h1
               variants={itemVariants}
-              className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-6xl leading-[1.1]"
+              className="text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl md:text-6xl lg:text-6xl leading-[1.15]"
             >
-              Engineering Intelligence.{" "}
-              <br />
+              Turning Data Into{" "}
+              <br className="hidden sm:inline" />
               <span className="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 bg-clip-text text-transparent">
-                Architecting Performance.
+                Actionable Insights.
               </span>
             </motion.h1>
 
-            {/* Core Value Statement */}
+            {/* Approved Supporting Description */}
             <motion.p
               variants={itemVariants}
               className="max-w-2xl text-base sm:text-lg text-muted-foreground leading-relaxed font-light mx-auto lg:mx-0"
             >
-              I am <strong className="text-foreground font-semibold">Muhammad Farid Fitriansyah</strong> — a <strong className="text-foreground font-semibold">Data Analyst</strong> specializing in Business Intelligence, Machine Learning, and Predictive Analytics. Computer Science graduate from <strong className="text-foreground font-semibold">Universitas Samudra (GPA 3.86)</strong> transforming complex data into actionable insights, visual dashboards, and intelligent decision support solutions.
+              Informatics graduate with hands-on experience in data analysis, business intelligence, predictive modeling, and data-driven solution development.
             </motion.p>
 
             {/* Action buttons */}
@@ -215,7 +260,7 @@ export default function Home() {
                 href="/projects"
                 className="inline-flex h-11 items-center justify-center rounded-xl bg-primary px-6 text-sm font-semibold text-primary-foreground shadow transition-transform hover:scale-[1.02] active:scale-[0.98] gap-1.5"
               >
-                Explore Projects
+                View Projects
                 <ArrowRight className="h-4 w-4" aria-hidden="true" />
               </Link>
               <a
@@ -249,7 +294,7 @@ export default function Home() {
             </motion.div>
           </motion.div>
 
-          {/* Right Column: Hero Personal Portrait PHOTO B (5 cols) */}
+          {/* Right Column: Hero Personal Portrait PHOTO (5 cols) */}
           <motion.div
             initial={{ opacity: 0, scale: 0.96 }}
             animate={{ opacity: 1, scale: 1 }}
@@ -263,7 +308,7 @@ export default function Home() {
                 <div className="relative aspect-square w-full rounded-2xl overflow-hidden bg-secondary/40">
                   <Image
                     src="/images/farid-hero-blazer.webp"
-                    alt="Muhammad Farid Fitriansyah"
+                    alt="Muhammad Farid Fitriansyah — Data Analyst"
                     width={800}
                     height={800}
                     priority
@@ -291,11 +336,10 @@ export default function Home() {
               </div>
             </div>
           </motion.div>
-
         </div>
       </section>
 
-      {/* METRICS BAR */}
+      {/* APPROVED METRICS BAR */}
       <section className="w-full border-y border-border bg-card/30 py-8" aria-label="Key metrics">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 gap-8 md:grid-cols-4 text-center">
@@ -313,155 +357,157 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ANALYTICAL WORKFLOW SECTION */}
-      <section className="w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8" aria-label="Analytical workflow">
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
-            Methodology &amp; Process
-          </span>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            End-to-End Analytical Workflow
-          </h2>
-          <p className="mt-3 text-base text-muted-foreground font-light leading-relaxed">
-            How raw data is transformed into actionable insights, predictive models, and decision support solutions.
-          </p>
-        </div>
-
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {analyticalWorkflow.map((item) => (
-            <div
-              key={item.step}
-              className="rounded-2xl border border-border bg-card p-6 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col justify-between"
-            >
-              <div className="space-y-3">
-                <span className="inline-block text-xs font-mono font-bold text-indigo-500 bg-indigo-500/10 px-2.5 py-1 rounded-md">
-                  {item.step}
-                </span>
-                <h3 className="text-base font-bold text-foreground">{item.title}</h3>
-                <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* FEATURED PROJECTS */}
-      <section className="w-full max-w-7xl px-4 py-16 sm:px-6 lg:px-8 border-t border-border">
+      {/* FEATURED DATA & ANALYTICS PROJECTS */}
+      <section className="w-full max-w-7xl px-4 py-20 sm:px-6 lg:px-8" aria-label="Featured projects">
         <div className="flex flex-col items-center justify-between gap-4 md:flex-row md:items-end mb-12">
-          <div className="max-w-xl text-center md:text-left">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Featured Analytics &amp; Data Projects
+          <div className="max-w-2xl text-center md:text-left">
+            <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
+              Tier 1 — Core Portfolio
+            </span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              Featured Data &amp; Analytics Projects
             </h2>
-            <p className="mt-3 text-base text-muted-foreground leading-relaxed">
-              Explore key projects demonstrating live commerce sales prediction, PyTorch LSTM commodity forecasting, and Gemini RAG decision systems.
+            <p className="mt-3 text-base text-muted-foreground leading-relaxed font-light">
+              Demonstrating constrained sales regression modeling, recurrent time-series commodity forecasting, and authentic Microsoft Excel business intelligence dashboards.
             </p>
           </div>
           <Link
             href="/projects"
             className="group inline-flex items-center gap-1 text-sm font-semibold text-indigo-500 hover:text-indigo-600 transition-colors"
           >
-            Browse all projects
+            View all 9 projects
             <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" aria-hidden="true" />
           </Link>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2">
-          {projectsData.slice(0, 2).map((project, idx) => (
+          {featuredProjects.map((project, idx) => (
             <ProjectCard key={project.slug} project={project} index={idx} />
           ))}
         </div>
       </section>
 
-      {/* ENGINEERING & ANALYTICS PHILOSOPHY */}
-      <section className="w-full bg-secondary/35 py-24 border-y border-border" aria-label="Engineering philosophy">
+      {/* APPROVED ANALYTICS WORKFLOW */}
+      <section className="w-full bg-secondary/35 py-24 border-y border-border" aria-label="Analytical workflow">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="mx-auto max-w-3xl text-center mb-16">
-            <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-              Analytical &amp; Engineering Focus
+            <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
+              Data Analyst Methodology
+            </span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+              End-to-End Analytics Workflow
             </h2>
-            <p className="mt-4 text-base text-muted-foreground font-light">
-              Combining data analytics, statistical machine learning, and clean software implementation.
+            <p className="mt-3 text-base text-muted-foreground font-light leading-relaxed">
+              How data is systematically transformed from business challenge into validated models and decision-ready dashboards.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {philosophyCards.map(({ Icon, color, title, desc, footer }) => (
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {analyticalWorkflow.map((item) => (
               <div
-                key={title}
-                className="rounded-2xl border border-border bg-card p-8 flex flex-col justify-between h-80 shadow-sm hover:shadow-md transition-shadow duration-200"
+                key={item.step}
+                className="rounded-2xl border border-border bg-card p-6 shadow-sm hover:shadow-md transition-shadow duration-200 flex flex-col justify-between"
               >
-                <div className="space-y-4">
-                  <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${color}`}>
-                    <Icon className="h-6 w-6" aria-hidden="true" />
-                  </div>
-                  <h3 className="text-lg font-bold text-foreground">{title}</h3>
-                  <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
-                </div>
-                <div className="border-t border-border pt-4 text-xs font-mono text-muted-foreground">
-                  {footer}
+                <div className="space-y-3">
+                  <span className="inline-block text-xs font-mono font-bold text-indigo-500 bg-indigo-500/10 px-2.5 py-1 rounded-md">
+                    {item.step}
+                  </span>
+                  <h3 className="text-base font-bold text-foreground tracking-wide font-mono">{item.title}</h3>
+                  <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
 
-            {/* RAG & Vector optimization card */}
-            <div className="rounded-2xl border border-border bg-card p-8 flex flex-col justify-between h-80 md:col-span-2 shadow-sm hover:shadow-md transition-shadow duration-200">
-              <div className="space-y-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500">
-                  <Database className="h-6 w-6" aria-hidden="true" />
-                </div>
-                <h3 className="text-lg font-bold text-foreground">Vector Search &amp; Semantic Analytics Optimization</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Innovative RAG backend optimization: caching 768-dimension vector embeddings in local SQLite tables to bypass API network roundtrips, and pre-computing stem maps to reduce runtime stem overhead.
-                </p>
-              </div>
-              <div className="grid grid-cols-2 gap-4 border-t border-border pt-4 text-xs font-mono text-muted-foreground">
-                <div>Vector cache: &lt;50ms latency</div>
-                <div>Stemming speedup: 1.8M× pre-computed index</div>
-              </div>
-            </div>
+      {/* ANALYTICAL & ENGINEERING PHILOSOPHY */}
+      <section className="w-full max-w-7xl px-4 py-24 sm:px-6 lg:px-8" aria-label="Analytical focus">
+        <div className="mx-auto max-w-3xl text-center mb-16">
+          <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
+            Analytical Rigor
+          </span>
+          <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Core Analytical Principles
+          </h2>
+          <p className="mt-4 text-base text-muted-foreground font-light">
+            Combining rigorous data preparation, domain-aware modeling, and functional implementation.
+          </p>
+        </div>
 
-            {/* Technical Differentiator Card */}
-            <div className="rounded-2xl border border-border bg-card p-8 flex flex-col justify-between h-80 shadow-sm hover:shadow-md transition-shadow duration-200">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {philosophyCards.map(({ Icon, color, title, desc, footer }) => (
+            <div
+              key={title}
+              className="rounded-2xl border border-border bg-card p-8 flex flex-col justify-between h-80 shadow-sm hover:shadow-md transition-shadow duration-200"
+            >
               <div className="space-y-4">
-                <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500">
-                  <Workflow className="h-6 w-6" aria-hidden="true" />
+                <div className={`flex h-12 w-12 items-center justify-center rounded-xl ${color}`}>
+                  <Icon className="h-6 w-6" aria-hidden="true" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground">Software Differentiator</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">
-                  Unlike standard static analysis workflows, I can build, deploy, and maintain functional web applications (Flask, Laravel, Next.js) that turn models into usable tools.
-                </p>
+                <h3 className="text-lg font-bold text-foreground">{title}</h3>
+                <p className="text-sm text-muted-foreground leading-relaxed">{desc}</p>
               </div>
               <div className="border-t border-border pt-4 text-xs font-mono text-muted-foreground">
-                Data Analyst + Software Implementation
+                {footer}
               </div>
+            </div>
+          ))}
+
+          {/* Applied Data Solution Differentiator */}
+          <div className="rounded-2xl border border-border bg-card p-8 flex flex-col justify-between h-80 md:col-span-3 shadow-sm hover:shadow-md transition-shadow duration-200">
+            <div className="space-y-4 max-w-3xl">
+              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-indigo-500/10 text-indigo-500">
+                <Workflow className="h-6 w-6" aria-hidden="true" />
+              </div>
+              <h3 className="text-lg font-bold text-foreground">
+                Full-Lifecycle Solution Development
+              </h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                I can understand a business problem, work with data, analyze it, communicate insights, build predictive models when appropriate, and turn the result into a usable solution. With an Informatics background, I bridge the gap between static analysis and functional decision-making tools (Flask, Streamlit, Laravel).
+              </p>
+            </div>
+            <div className="border-t border-border pt-4 text-xs font-mono text-muted-foreground flex flex-wrap gap-4">
+              <span>Problem Framing</span>
+              <span>•</span>
+              <span>Data Preparation</span>
+              <span>•</span>
+              <span>Modeling &amp; Evaluation</span>
+              <span>•</span>
+              <span>Dashboards &amp; Web Platforms</span>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SKILLS GRID */}
-      <section className="w-full max-w-7xl px-4 py-24 sm:px-6 lg:px-8" aria-label="Core capabilities">
-        <div className="mx-auto max-w-3xl text-center mb-16">
-          <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Technical Skills</h2>
-          <p className="mt-4 text-base text-muted-foreground font-light">
-            Organized hierarchy: Data Analytics, Business Intelligence, Databases, Machine Learning, and Software Implementation.
-          </p>
-        </div>
+      {/* REORGANIZED SKILLS GRID */}
+      <section className="w-full bg-secondary/35 py-24 border-y border-border" aria-label="Core capabilities">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mx-auto max-w-3xl text-center mb-16">
+            <span className="text-xs font-semibold text-indigo-500 uppercase tracking-widest font-mono">
+              Capabilities
+            </span>
+            <h2 className="mt-2 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">Technical Skills</h2>
+            <p className="mt-4 text-base text-muted-foreground font-light">
+              Structured into Data Analytics, Business Intelligence, Machine Learning, and Supporting Technologies.
+            </p>
+          </div>
 
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {skillsData.map((skillGroup, idx) => (
-            <SkillGroup
-              key={skillGroup.category}
-              category={skillGroup.category}
-              items={skillGroup.items}
-              delay={idx * 0.06}
-            />
-          ))}
+          <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+            {skillsData.map((skillGroup, idx) => (
+              <SkillGroup
+                key={skillGroup.category}
+                category={skillGroup.category}
+                items={skillGroup.items}
+                delay={idx * 0.05}
+              />
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CTA SECTION */}
-      <section className="relative w-full max-w-5xl px-4 py-16 sm:px-6 lg:px-8 mb-20">
+      {/* RECRUITER CTA SECTION */}
+      <section className="relative w-full max-w-5xl px-4 py-20 sm:px-6 lg:px-8">
         <div className="relative rounded-3xl border border-border bg-card overflow-hidden p-8 sm:p-12 md:p-16 text-center shadow-lg">
           <div
             className="absolute inset-0 -z-10 pointer-events-none"
@@ -472,17 +518,17 @@ export default function Home() {
             aria-hidden="true"
           />
           <h2 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
-            Discuss a Data Analytics Opportunity?
+            Interested in data analytics or data-driven solutions?
           </h2>
           <p className="mx-auto mt-4 max-w-xl text-sm sm:text-base text-muted-foreground leading-relaxed">
-            I am available for Data Analyst, Business Intelligence, and Machine Learning opportunities. Feel free to download my CV or get in touch.
+            I am available for Data Analyst, Business Intelligence, and Machine Learning opportunities. Let&apos;s connect to discuss how data can drive your business forward.
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-4">
             <Link
               href="/contact"
               className="inline-flex h-11 items-center justify-center rounded-xl bg-primary px-6 text-sm font-semibold text-primary-foreground shadow transition-transform hover:scale-[1.02] active:scale-[0.98]"
             >
-              Contact Me
+              Let&apos;s Connect
             </Link>
             <a
               href="/Muhammad-Farid-Fitriansyah-CV.docx"
@@ -490,7 +536,7 @@ export default function Home() {
               className="inline-flex h-11 items-center justify-center rounded-xl border border-border bg-card px-6 text-sm font-semibold text-muted-foreground hover:text-foreground transition-transform hover:scale-[1.02] active:scale-[0.98] gap-1.5"
             >
               <FileText className="h-4 w-4" aria-hidden="true" />
-              Download Official CV
+              Download CV
             </a>
           </div>
         </div>
